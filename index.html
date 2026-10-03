@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lance ton app</title>
+<meta name="description" content="Lance ton app : j'aide les gens et les petites entreprises du Québec à créer leur application et à la publier.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout : une colonne large, sections empilées; le « bon de travail » (fiche d'atelier) revient comme motif pour le parcours et la demande de soumission. */
+:root{
+  --bg:#f3f5f8; --surface:#ffffff; --ink:#131b2b; --muted:#566076; --line:#d3d9e3;
+  --blue:#1d4fa3; --blue-ink:#ffffff; --hivis:#f2c300; --hivis-ink:#1a1600; --ok:#1c7a4a;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1522; --surface:#182033; --ink:#eef2f8; --muted:#a3adc2; --line:#2e3950;
+  --blue:#7fa8f5; --blue-ink:#0b1220; --hivis:#f5cd1f; --hivis-ink:#1a1600; --ok:#5fd396; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1522; --surface:#182033; --ink:#eef2f8; --muted:#a3adc2; --line:#2e3950;
+  --blue:#7fa8f5; --blue-ink:#0b1220; --hivis:#f5cd1f; --hivis-ink:#1a1600; --ok:#5fd396; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+.wrap{max-width:1040px;margin-inline:auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.4rem,7vw,4.4rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700}
+h3{font-size:1.3rem;font-weight:700}
+p{margin:0}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--hivis);outline-offset:2px}
+.label{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px;flex-wrap:wrap}
+.mark{font-family:var(--display);font-weight:800;font-size:1.25rem;color:var(--ink);text-decoration:none}
+.mark span{background:var(--hivis);color:var(--hivis-ink);padding:0 .3em;border-radius:3px}
+nav{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+nav a{color:var(--ink);text-decoration:none;font-size:.95rem;font-weight:500}
+nav a:hover{text-decoration:underline}
+.btn{display:inline-block;background:var(--blue);color:var(--blue-ink);font-weight:600;padding:.7em 1.15em;border-radius:6px;text-decoration:none;border:0;font:inherit;font-weight:600;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+nav .btn{color:var(--blue-ink)}
+
+section{padding-block:56px}
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center;padding-block:56px 48px}
+.hero > *{min-width:0}
+.hero p.lead{font-size:1.2rem;color:var(--muted);max-width:34ch;margin-block:20px 28px}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--hivis) 62%)}
+
+/* bon de travail */
+.ticket{background:var(--surface);border:1px solid var(--line);border-top:8px solid var(--blue);border-radius:4px;padding:22px}
+.ticket-head{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:12px;margin-bottom:14px}
+.route{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.route li{display:grid;grid-template-columns:2.2em 1fr;gap:10px;align-items:start}
+.route b{font-family:var(--mono);font-weight:600;color:var(--blue)}
+.route small{display:block;color:var(--muted);font-size:.9rem;line-height:1.4}
+
+.intro{max-width:62ch;color:var(--muted);margin-top:12px}
+.offers{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:28px}
+.offer{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.offer ul{margin:0;padding-left:1.1em;color:var(--muted);font-size:.97rem}
+.offer .label{color:var(--blue)}
+
+.steps{background:var(--surface);border-block:1px solid var(--line)}
+.steps ol{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:18px 32px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2.4em 1fr;gap:8px;min-width:0}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-weight:600;color:var(--blue)}
+.steps code{font-family:var(--mono);font-size:.88em;background:var(--bg);padding:.1em .35em;border-radius:3px;overflow-wrap:anywhere}
+.steps span{color:var(--muted);font-size:.97rem;display:block}
+
+.work{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:28px}
+.project{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.tags li{font-family:var(--mono);font-size:.78rem;border:1px solid var(--line);border-radius:99px;padding:.15em .7em;color:var(--muted)}
+.status{font-family:var(--mono);font-size:.8rem;color:var(--ok)}
+.status.wip{color:var(--muted)}
+
+.story{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:start}
+.story > *{min-width:0}
+.story p + p{margin-top:14px}
+.story .body{max-width:62ch}
+
+form{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field.full{grid-column:1/-1}
+label{font-weight:600;font-size:.95rem}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:.65em .75em;width:100%}
+textarea{min-height:130px;resize:vertical}
+.hint{color:var(--muted);font-size:.88rem}
+.recap{margin-top:20px;border:1px dashed var(--line);border-radius:4px;padding:16px;background:var(--bg)}
+.recap dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:10px 0 0;font-size:.95rem}
+.recap dt{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.recap dd{margin:0;overflow-wrap:anywhere;white-space:pre-wrap}
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);font-size:.9rem}
+
+@media (max-width:760px){
+  .hero,.story{grid-template-columns:1fr}
+  .offers,.work,.steps ol,form{grid-template-columns:1fr}
+  section{padding-block:40px}
+  nav a:not(.btn){display:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="mark" href="#haut">Lance <span>ton app</span></a>
+    <nav>
+      <a href="#offres">Services</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#histoire">Mon histoire</a>
+      <a class="btn" href="#soumission">Demander une soumission</a>
+    </nav>
+  </div>
+</header>
+
+<main id="haut">
+  <div class="wrap hero">
+    <div>
+      <p class="label">Joliette, Québec · Service en français</p>
+      <h1>De ton idée <em>jusqu'au Store.</em></h1>
+      <p class="lead">J'aide les gens et les petites entreprises du Québec à créer leur application et à la publier, même sans connaissances techniques. Une seule application, sur ton téléphone et sur ton ordinateur.</p>
+      <a class="btn" href="#soumission">Parle-moi de ton projet</a>
+    </div>
+    <aside class="ticket" aria-label="Le parcours d'une app">
+      <div class="ticket-head"><span class="label">Bon de travail</span><span class="label">Parcours d'une app</span></div>
+      <ol class="route">
+        <li><b>A</b><div>Ton idée<small>On clarifie ce que l'app doit faire, et pour qui.</small></div></li>
+        <li><b>B</b><div>La construction<small>Je la bâtis, ou je te guide pour la bâtir toi-même.</small></div></li>
+        <li><b>C</b><div>Les tests<small>De vraies personnes l'essaient avant le lancement.</small></div></li>
+        <li><b>D</b><div>Les Stores<small>L'app est en ligne sur Google Play et sur l'App Store.</small></div></li>
+      </ol>
+    </aside>
+  </div>
+
+  <section id="offres">
+    <div class="wrap">
+      <h2>Quatre façons de travailler ensemble</h2>
+      <p class="intro">Tu choisis selon ce que tu veux : apprendre à le faire, me le confier, franchir la dernière étape, ou protéger ce que tu as déjà.</p>
+      <div class="offers">
+        <article class="offer">
+          <p class="label">Accompagnement</p>
+          <h3>Tu construis, je te guide</h3>
+          <p>Pour ceux qui veulent bâtir leur première app avec l'IA sans rester bloqués.</p>
+          <ul><li>Séances à l'écran, une étape à la fois</li><li>Aide quand un bogue t'arrête</li><li>Aucun prérequis technique</li><li>Une app qui s'ouvre au téléphone comme à l'ordinateur</li></ul>
+        </article>
+        <article class="offer">
+          <p class="label">Création</p>
+          <h3>Je la construis pour toi</h3>
+          <p>Pour un commerce ou un travailleur autonome qui a besoin d'un outil précis.</p>
+          <ul><li>Calculateur de prix ou de soumission</li><li>Formulaire intelligent, mini-application</li><li>Assistant avec IA intégrée, en français</li><li>Utilisable au bureau sur l'ordinateur, et partout sur le téléphone</li></ul>
+        </article>
+        <article class="offer">
+          <p class="label">Publication</p>
+          <h3>Je la mets sur les Stores</h3>
+          <p>Pour une app web déjà faite qui doit devenir une vraie app sur téléphone.</p>
+          <ul><li>Google Play, pour Android</li><li>App Store, pour iPhone</li><li>Fiche du Store, déclarations et suivi jusqu'à l'approbation</li><li>La version web reste accessible à l'ordinateur</li></ul>
+        </article>
+        <article class="offer">
+          <p class="label">Sécurité</p>
+          <h3>Je protège ton app et tes comptes</h3>
+          <p>Pour une application déjà en ligne dont les clés ou les comptes sont mal protégés.</p>
+          <ul><li>Clés d'accès sorties du code et mises à l'abri</li><li>Vérification de tes comptes : courriel, mot de passe, double vérification</li><li>Un guide et un inventaire de tes comptes, à garder</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps">
+    <div class="wrap">
+      <h2>Publier sur Google Play, étape par étape</h2>
+      <p class="intro">C'est ici que la plupart des gens abandonnent. Je suis passé par chacune de ces étapes avec ma propre application, SmartGrocer, sur Google Play comme sur l'App Store.</p>
+      <ol>
+        <li><div>Empaqueter l'app web<span>Transformer le site en fichier Android installable, avec sa clé de signature.</span></div></li>
+        <li><div>Lier le domaine à l'app<span>Déposer le fichier <code>assetlinks.json</code> pour faire disparaître la barre d'adresse.</span></div></li>
+        <li><div>Remplir la fiche et les déclarations<span>Politique de confidentialité, sécurité des données, classification du contenu.</span></div></li>
+        <li><div>Passer le test fermé<span>Réunir au moins 12 testeurs pendant 14 jours, comme Google l'exige des nouveaux comptes.</span></div></li>
+        <li><div>Demander l'accès en production<span>Soumettre l'app pour examen. L'approbation finale appartient à Google.</span></div></li>
+        <li><div>Mettre en ligne<span>L'app devient visible et téléchargeable dans le Store.</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="realisations">
+    <div class="wrap">
+      <h2>Ce que j'ai construit</h2>
+      <div class="work">
+        <article class="project">
+          <p class="status">Sur Google Play et sur l'App Store</p>
+          <h3>SmartGrocer</h3>
+          <p>Une application bilingue qui aide à économiser à l'épicerie : recettes à partir des spéciaux de la semaine, score santé des produits, alertes de péremption et suivi des prix.</p>
+          <ul class="tags"><li>Application installable</li><li>Français et anglais</li><li>IA intégrée</li><li>Paiement en ligne</li></ul>
+          <p><a href="https://smartgrocer.health">Voir smartgrocer.health</a></p>
+        </article>
+        <article class="project">
+          <p class="status">Gratuit, sans abonnement</p>
+          <h3>LoyerClair</h3>
+          <p>Un calculateur gratuit d'augmentation de loyer pour les locataires du Québec. Un outil à mission sociale, construit en une fraction du temps de mon premier projet.</p>
+          <ul class="tags"><li>Calculateur web</li><li>Québec</li><li>Mission sociale</li></ul>
+        </article>
+        <article class="project">
+          <p class="status wip">Projet en cours</p>
+          <h3>MyFirstApp</h3>
+          <p>Une formation guidée par l'IA, en cinq étapes, pour les gens qui veulent créer leur toute première application sans connaissances techniques.</p>
+          <ul class="tags"><li>Formation</li><li>Français et anglais</li><li>IA intégrée</li></ul>
+        </article>
+        <article class="project">
+          <p class="status wip">Projet en cours</p>
+          <h3>AngloShift</h3>
+          <p>Un tuteur d'anglais pour les francophones qui en ont besoin au travail : mises en situation réelles, suivi des erreurs fréquentes et entrevue simulée.</p>
+          <ul class="tags"><li>Apprentissage</li><li>IA intégrée</li></ul>
+        </article>
+        <article class="project">
+          <p class="status wip">Projet en cours</p>
+          <h3>BilanClair</h3>
+          <p>Un outil pour les travailleurs autonomes du Québec : suivi des revenus et des dépenses, calcul du montant déductible selon la catégorie, et export pour le comptable.</p>
+          <ul class="tags"><li>Travailleurs autonomes</li><li>Québec</li><li>Export pour comptable</li></ul>
+        </article>
+        <article class="project">
+          <p class="status">Outil maison</p>
+          <h3>Green Screen Remover</h3>
+          <p>Un petit outil web qui retire le fond vert, créé pour mon propre usage. Un bon exemple de ce qu'un outil simple et précis peut régler en quelques clics.</p>
+          <ul class="tags"><li>Outil web</li><li>Usage personnel</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="histoire" class="steps">
+    <div class="wrap story">
+      <div>
+        <p class="label">Mon histoire</p>
+        <h2>Je ne viens pas du monde de l'informatique.</h2>
+      </div>
+      <div class="body">
+        <p>Je m'appelle Timmy Villeneuve. Je suis journalier en usine à Joliette, et j'ai appris à créer des applications en les construisant, une étape à la fois, avec l'aide de l'intelligence artificielle.</p>
+        <p>Ma première app m'a fait traverser tous les obstacles : les bogues, les fichiers manquants, les règles de Google. La deuxième s'est construite beaucoup plus vite, parce que ces obstacles étaient devenus de l'expérience.</p>
+        <p>C'est cette expérience que je mets à ton service. Je t'explique les choses comme j'aurais aimé qu'on me les explique, sans jargon.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="soumission">
+    <div class="wrap">
+      <div class="ticket">
+        <div class="ticket-head"><span class="label">Bon de travail</span><span class="label">Demande de soumission</span></div>
+        <h2>Décris-moi ton projet</h2>
+        <p class="intro" style="margin-bottom:24px">Chaque projet est différent, alors je prépare un prix sur mesure. La soumission est gratuite et ne t'engage à rien.</p>
+        <form id="demande" novalidate>
+          <div class="field"><label for="f-nom">Ton nom</label><input id="f-nom" name="nom" autocomplete="name" required></div>
+          <div class="field"><label for="f-courriel">Ton courriel</label><input id="f-courriel" name="courriel" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="f-service">Ce qu'il te faut</label>
+            <select id="f-service" name="service">
+              <option>Accompagnement : je veux construire mon app</option>
+              <option>Création : je veux qu'on la construise pour moi</option>
+              <option>Publication : mon app est prête, il faut la mettre sur les Stores</option>
+              <option>Sécurité : je veux protéger mon app et mes comptes</option>
+              <option>Je ne suis pas certain</option>
+            </select></div>
+          <div class="field"><label for="f-delai">Pour quand</label>
+            <select id="f-delai" name="delai"><option>Pas pressé</option><option>D'ici un mois</option><option>D'ici deux semaines</option></select></div>
+          <div class="field full"><label for="f-projet">Ton projet en quelques phrases</label>
+            <textarea id="f-projet" name="projet" required></textarea>
+            <span class="hint">Qui va s'en servir, et quel problème ça doit régler ?</span></div>
+          <div class="field full"><button class="btn" type="submit">Envoyer ma demande</button>
+            <span class="hint" id="erreur" role="alert" hidden>Il manque ton nom, un courriel valide ou la description du projet.</span></div>
+        </form>
+        <div class="recap" id="recap" hidden>
+          <p><strong>Version d'essai.</strong> Le formulaire n'est pas encore branché à une boîte courriel. Voici ce que Timmy recevrait :</p>
+          <dl id="recap-liste"></dl>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Lance ton app · Timmy Villeneuve, Joliette (Québec)</div></footer>
+
+<script>
+const form=document.getElementById('demande'),recap=document.getElementById('recap'),liste=document.getElementById('recap-liste'),err=document.getElementById('erreur');
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const d=Object.fromEntries(new FormData(form));
+  const ok=d.nom.trim()&&/^\S+@\S+\.\S+$/.test(d.courriel.trim())&&d.projet.trim();
+  err.hidden=!!ok; if(!ok){recap.hidden=true;return;}
+  liste.textContent='';
+  [['Nom',d.nom],['Courriel',d.courriel],['Besoin',d.service],['Délai',d.delai],['Projet',d.projet]].forEach(([k,v])=>{
+    const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=k;dd.textContent=v.trim();liste.append(dt,dd);
+  });
+  recap.hidden=false;recap.scrollIntoView({block:'nearest'});
+});
+</script>
+</body>
+</html>
