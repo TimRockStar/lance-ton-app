@@ -14,20 +14,29 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0}
 img{max-width:100%}
 [hidden]{display:none!important}
-/* Layout : une colonne large, sections empilées; le « bon de travail » (fiche d'atelier) revient comme motif pour le parcours et la demande de soumission. */
+/* Layout : sections empilées en grandes bandes de couleur franche (cobalt, jaune haute visibilité, marine), avec le « bon de travail » comme motif pour le parcours et la demande de soumission. */
 :root{
-  --bg:#f3f5f8; --surface:#ffffff; --ink:#131b2b; --muted:#566076; --line:#d3d9e3;
-  --blue:#1d4fa3; --blue-ink:#ffffff; --hivis:#f2c300; --hivis-ink:#1a1600; --ok:#1c7a4a;
+  --bg:#f4f6fb; --surface:#ffffff; --ink:#0f1730; --muted:#4f5a75; --line:#d5dbe8;
+  --blue:#1f48e0; --blue-ink:#ffffff; --hivis:#ffd21f; --hivis-ink:#191400; --coral:#ff5a3c; --teal:#12b89e; --ok:#0f7a4d;
+  --hero-bg:#1f48e0; --hero-ink:#ffffff; --hero-muted:#d6deff;
+  --band-bg:#ffd21f; --band-ink:#191400; --band-muted:#4d4200; --band-code:#ffe98a; --band-num:#1f3bc0;
+  --story-bg:#0f1f66; --story-ink:#ffffff; --story-muted:#c9d2f5;
   --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
   --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0f1522; --surface:#182033; --ink:#eef2f8; --muted:#a3adc2; --line:#2e3950;
-  --blue:#7fa8f5; --blue-ink:#0b1220; --hivis:#f5cd1f; --hivis-ink:#1a1600; --ok:#5fd396; color-scheme:dark}}
+  --bg:#0b1020; --surface:#151c33; --ink:#eef1fa; --muted:#a6aecb; --line:#2a3454;
+  --blue:#7c96ff; --blue-ink:#0b1020; --hivis:#ffd21f; --hivis-ink:#191400; --coral:#ff7257; --teal:#2fd0b6; --ok:#5fd396;
+  --hero-bg:#1a3bc4; --hero-ink:#ffffff; --hero-muted:#d6deff;
+  --band-bg:#f5c800; --band-ink:#191400; --band-muted:#4d4200; --band-code:#ffe98a; --band-num:#1f3bc0;
+  --story-bg:#0a1445; --story-ink:#ffffff; --story-muted:#c9d2f5; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0f1522; --surface:#182033; --ink:#eef2f8; --muted:#a3adc2; --line:#2e3950;
-  --blue:#7fa8f5; --blue-ink:#0b1220; --hivis:#f5cd1f; --hivis-ink:#1a1600; --ok:#5fd396; color-scheme:dark}
+  --bg:#0b1020; --surface:#151c33; --ink:#eef1fa; --muted:#a6aecb; --line:#2a3454;
+  --blue:#7c96ff; --blue-ink:#0b1020; --hivis:#ffd21f; --hivis-ink:#191400; --coral:#ff7257; --teal:#2fd0b6; --ok:#5fd396;
+  --hero-bg:#1a3bc4; --hero-ink:#ffffff; --hero-muted:#d6deff;
+  --band-bg:#f5c800; --band-ink:#191400; --band-muted:#4d4200; --band-code:#ffe98a; --band-num:#1f3bc0;
+  --story-bg:#0a1445; --story-ink:#ffffff; --story-muted:#c9d2f5; color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
@@ -38,10 +47,10 @@ h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700}
 h3{font-size:1.3rem;font-weight:700}
 p{margin:0}
 a{color:var(--blue)}
-:focus-visible{outline:3px solid var(--hivis);outline-offset:2px}
+:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
 .label{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:3px solid var(--hivis)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px;flex-wrap:wrap}
 .mark{font-family:var(--display);font-weight:800;font-size:1.25rem;color:var(--ink);text-decoration:none}
 .mark span{background:var(--hivis);color:var(--hivis-ink);padding:0 .3em;border-radius:3px}
@@ -50,46 +59,68 @@ nav a{color:var(--ink);text-decoration:none;font-size:.95rem;font-weight:500}
 nav a:hover{text-decoration:underline}
 .btn{display:inline-block;background:var(--blue);color:var(--blue-ink);font-weight:600;padding:.7em 1.15em;border-radius:6px;text-decoration:none;border:0;font:inherit;font-weight:600;cursor:pointer}
 .btn:hover{filter:brightness(1.08)}
-nav .btn{color:var(--blue-ink)}
+nav .btn{background:var(--coral);color:var(--hivis-ink)}
 
-section{padding-block:56px}
-.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center;padding-block:56px 48px}
+section{padding-block:60px}
+.hero-band{background:var(--hero-bg);color:var(--hero-ink)}
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center;padding-block:64px 60px}
 .hero > *{min-width:0}
-.hero p.lead{font-size:1.2rem;color:var(--muted);max-width:34ch;margin-block:20px 28px}
-.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--hivis) 62%)}
+.hero .label{color:var(--hero-muted)}
+.hero p.lead{font-size:1.2rem;color:var(--hero-muted);max-width:34ch;margin-block:20px 28px}
+.hero h1 em{font-style:normal;color:var(--hivis)}
+.hero .btn{background:var(--hivis);color:var(--hivis-ink)}
 
 /* bon de travail */
-.ticket{background:var(--surface);border:1px solid var(--line);border-top:8px solid var(--blue);border-radius:4px;padding:22px}
+.ticket{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-top:8px solid var(--coral);border-radius:4px;padding:22px}
+.hero .ticket{border-color:transparent;border-top-color:var(--hivis);box-shadow:10px 10px 0 var(--story-bg)}
+.hero .ticket .label{color:var(--muted)}
 .ticket-head{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:12px;margin-bottom:14px}
 .route{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .route li{display:grid;grid-template-columns:2.2em 1fr;gap:10px;align-items:start}
-.route b{font-family:var(--mono);font-weight:600;color:var(--blue)}
+.route b{font-family:var(--mono);font-weight:600;background:var(--hivis);color:var(--hivis-ink);border-radius:3px;text-align:center;line-height:1.7}
 .route small{display:block;color:var(--muted);font-size:.9rem;line-height:1.4}
 
 .intro{max-width:62ch;color:var(--muted);margin-top:12px}
 .offers{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:28px}
-.offer{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.offer{--c:var(--blue);--c-ink:var(--blue-ink);background:var(--surface);border:1px solid var(--line);border-top:8px solid var(--c);border-radius:4px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.offer:nth-child(2){--c:var(--coral);--c-ink:var(--hivis-ink)}
+.offer:nth-child(3){--c:var(--teal);--c-ink:var(--hivis-ink)}
+.offer:nth-child(4){--c:var(--hivis);--c-ink:var(--hivis-ink)}
 .offer ul{margin:0;padding-left:1.1em;color:var(--muted);font-size:.97rem}
-.offer .label{color:var(--blue)}
+.offer .label{align-self:flex-start;background:var(--c);color:var(--c-ink);padding:.15em .6em;border-radius:3px;font-weight:600}
 
-.steps{background:var(--surface);border-block:1px solid var(--line)}
+.steps{background:var(--band-bg);color:var(--band-ink)}
+.steps .intro{color:var(--band-muted)}
 .steps ol{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:18px 32px;counter-reset:s}
-.steps li{counter-increment:s;display:grid;grid-template-columns:2.4em 1fr;gap:8px;min-width:0}
-.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-weight:600;color:var(--blue)}
-.steps code{font-family:var(--mono);font-size:.88em;background:var(--bg);padding:.1em .35em;border-radius:3px;overflow-wrap:anywhere}
-.steps span{color:var(--muted);font-size:.97rem;display:block}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2.6em 1fr;gap:8px;min-width:0;font-weight:600}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--display);font-weight:800;font-size:1.4rem;line-height:1.1;color:var(--band-num)}
+.steps code{font-family:var(--mono);font-size:.88em;background:var(--band-code);color:var(--band-ink);padding:.1em .35em;border-radius:3px;overflow-wrap:anywhere}
+.steps span{color:var(--band-muted);font-size:.97rem;display:block;font-weight:400}
 
 .work{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:28px}
-.project{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.project{--c:var(--blue);--c-ink:var(--blue-ink);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:24px;display:grid;grid-template-columns:56px 1fr;gap:6px 16px;align-content:start;min-width:0}
+.project::before{content:attr(data-i);grid-row:1 / span 2;width:56px;height:56px;display:grid;place-items:center;background:var(--c);color:var(--c-ink);font-family:var(--display);font-weight:800;font-size:1.25rem;border-radius:6px}
+.project > *{min-width:0}
+.project > p:not(.status),.project > ul{grid-column:1 / -1}
+.project > p:not(.status){margin-top:8px}
+.project .status,.project h3{grid-column:2}
+.project:nth-child(6n+2){--c:var(--coral);--c-ink:var(--hivis-ink)}
+.project:nth-child(6n+3){--c:var(--hivis);--c-ink:var(--hivis-ink)}
+.project:nth-child(6n+4){--c:var(--teal);--c-ink:var(--hivis-ink)}
+.project:nth-child(6n+5){--c:var(--story-bg);--c-ink:var(--story-ink)}
+.project:nth-child(6n+6){--c:var(--coral);--c-ink:var(--hivis-ink)}
 .tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
 .tags li{font-family:var(--mono);font-size:.78rem;border:1px solid var(--line);border-radius:99px;padding:.15em .7em;color:var(--muted)}
-.status{font-family:var(--mono);font-size:.8rem;color:var(--ok)}
+.status{font-family:var(--mono);font-size:.8rem;color:var(--ok);align-self:end}
 .status.wip{color:var(--muted)}
 
+.story-band{background:var(--story-bg);color:var(--story-ink)}
+.story-band .label{color:var(--hivis)}
+.story-band h2 em{font-style:normal;color:var(--hivis)}
 .story{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:start}
 .story > *{min-width:0}
 .story p + p{margin-top:14px}
-.story .body{max-width:62ch}
+.story .body{max-width:62ch;color:var(--story-muted)}
 
 form{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .field{display:flex;flex-direction:column;gap:6px;min-width:0}
@@ -98,16 +129,19 @@ label{font-weight:600;font-size:.95rem}
 input,select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:.65em .75em;width:100%}
 textarea{min-height:130px;resize:vertical}
 .hint{color:var(--muted);font-size:.88rem}
+form .btn{background:var(--coral);color:var(--hivis-ink);font-size:1.05rem}
 .recap{margin-top:20px;border:1px dashed var(--line);border-radius:4px;padding:16px;background:var(--bg)}
 .recap dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:10px 0 0;font-size:.95rem}
 .recap dt{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
 .recap dd{margin:0;overflow-wrap:anywhere;white-space:pre-wrap}
-footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);font-size:.9rem}
+footer{background:var(--story-bg);color:var(--story-muted);padding-block:28px;font-size:.9rem;border-top:6px solid var(--hivis)}
 
 @media (max-width:760px){
   .hero,.story{grid-template-columns:1fr}
   .offers,.work,.steps ol,form{grid-template-columns:1fr}
-  section{padding-block:40px}
+  section{padding-block:44px}
+  .hero{padding-block:44px}
+  .hero .ticket{box-shadow:6px 6px 0 var(--story-bg)}
   nav a:not(.btn){display:none}
 }
 </style>
@@ -126,7 +160,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 </header>
 
 <main id="haut">
-  <div class="wrap hero">
+  <div class="hero-band"><div class="wrap hero">
     <div>
       <p class="label">Joliette, Québec · Service en français</p>
       <h1>De ton idée <em>jusqu'au Store.</em></h1>
@@ -142,7 +176,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
         <li><b>D</b><div>Les Stores<small>L'app est en ligne sur Google Play et sur l'App Store.</small></div></li>
       </ol>
     </aside>
-  </div>
+  </div></div>
 
   <section id="offres">
     <div class="wrap">
@@ -196,38 +230,38 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
     <div class="wrap">
       <h2>Ce que j'ai construit</h2>
       <div class="work">
-        <article class="project">
+        <article class="project" data-i="SG">
           <p class="status">Sur Google Play et sur l'App Store</p>
           <h3>SmartGrocer</h3>
           <p>Une application bilingue qui aide à économiser à l'épicerie : recettes à partir des spéciaux de la semaine, score santé des produits, alertes de péremption et suivi des prix.</p>
           <ul class="tags"><li>Application installable</li><li>Français et anglais</li><li>IA intégrée</li><li>Paiement en ligne</li></ul>
           <p><a href="https://smartgrocer.health">Voir smartgrocer.health</a></p>
         </article>
-        <article class="project">
+        <article class="project" data-i="LC">
           <p class="status">Gratuit, sans abonnement</p>
           <h3>LoyerClair</h3>
           <p>Un calculateur gratuit d'augmentation de loyer pour les locataires du Québec. Un outil à mission sociale, construit en une fraction du temps de mon premier projet.</p>
           <ul class="tags"><li>Calculateur web</li><li>Québec</li><li>Mission sociale</li></ul>
         </article>
-        <article class="project">
+        <article class="project" data-i="MF">
           <p class="status wip">Projet en cours</p>
           <h3>MyFirstApp</h3>
           <p>Une formation guidée par l'IA, en cinq étapes, pour les gens qui veulent créer leur toute première application sans connaissances techniques.</p>
           <ul class="tags"><li>Formation</li><li>Français et anglais</li><li>IA intégrée</li></ul>
         </article>
-        <article class="project">
+        <article class="project" data-i="AS">
           <p class="status wip">Projet en cours</p>
           <h3>AngloShift</h3>
           <p>Un tuteur d'anglais pour les francophones qui en ont besoin au travail : mises en situation réelles, suivi des erreurs fréquentes et entrevue simulée.</p>
           <ul class="tags"><li>Apprentissage</li><li>IA intégrée</li></ul>
         </article>
-        <article class="project">
+        <article class="project" data-i="BC">
           <p class="status wip">Projet en cours</p>
           <h3>BilanClair</h3>
           <p>Un outil pour les travailleurs autonomes du Québec : suivi des revenus et des dépenses, calcul du montant déductible selon la catégorie, et export pour le comptable.</p>
           <ul class="tags"><li>Travailleurs autonomes</li><li>Québec</li><li>Export pour comptable</li></ul>
         </article>
-        <article class="project">
+        <article class="project" data-i="GS">
           <p class="status">Outil maison</p>
           <h3>Green Screen Remover</h3>
           <p>Un petit outil web qui retire le fond vert, créé pour mon propre usage. Un bon exemple de ce qu'un outil simple et précis peut régler en quelques clics.</p>
@@ -237,11 +271,11 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
     </div>
   </section>
 
-  <section id="histoire" class="steps">
+  <section id="histoire" class="story-band">
     <div class="wrap story">
       <div>
         <p class="label">Mon histoire</p>
-        <h2>Je ne viens pas du monde de l'informatique.</h2>
+        <h2>Je ne viens pas du monde de <em>l'informatique.</em></h2>
       </div>
       <div class="body">
         <p>Je m'appelle Timmy Villeneuve. Je suis journalier en usine à Joliette, et j'ai appris à créer des applications en les construisant, une étape à la fois, avec l'aide de l'intelligence artificielle.</p>
