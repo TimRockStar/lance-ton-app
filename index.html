@@ -1,7 +1,19 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lance ton app</title>
+<meta name="description" content="Lance ton app : j'aide les gens et les petites entreprises du Québec à créer leur application et à la publier.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;700;800&family=Figtree:wght@400;500;600;700&display=swap">
 <style>
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
 /* Layout : tout est aligné à gauche sur une grille de 1100px. Le haut de page porte la seule pièce spectaculaire : une vraie mini-application qui fonctionne, affichée en même temps sur un téléphone et sur un ordinateur. Le reste reste calme : parcours en ligne, services en liste, réalisations en vignettes de téléphone. */
 :root{
   --paper:#ffffff; --tint:#eef5f4; --ink:#0e2a33; --soft:#4b626a; --line:#d6e2e3;
@@ -190,7 +202,8 @@ footer strong{color:var(--deep-ink);font-family:var(--display);font-size:1.15rem
   .tel{position:relative;width:60%;margin:-40px 0 0 auto}
 }
 </style>
-
+</head>
+<body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-crochet" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
   <symbol id="i-fleche" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
@@ -422,7 +435,8 @@ function majDemo(){
   document.querySelectorAll('[data-prix]').forEach(e=>e.textContent=prix+' $');
   document.querySelector('[data-barre]').style.width=Math.round((s-50)/950*100)+'%';
 }
-$('demo-nom').addEventListener('input',majDemo);
+['input','change','keyup','blur','compositionend','paste'].forEach(ev=>$('demo-nom').addEventListener(ev,()=>setTimeout(majDemo,0)));
+let dernierNom=$('demo-nom').value; setInterval(()=>{ if($('demo-nom').value!==dernierNom){ dernierNom=$('demo-nom').value; majDemo(); } },400);
 $('demo-surface').addEventListener('input',majDemo);
 majDemo();
 
@@ -439,5 +453,5 @@ form.addEventListener('submit',e=>{
   recap.hidden=false;recap.scrollIntoView({block:'nearest'});
 });
 </script>
-
-</body></html>
+</body>
+</html>
