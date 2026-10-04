@@ -228,6 +228,7 @@ dialog.loupe::backdrop{background:rgba(6,20,24,.82)}
   .scene{padding-right:0;padding-bottom:0}
   .tel{position:relative;width:60%;margin:-40px 0 0 auto}
 }
+.engagements{display:grid;gap:28px}.intro-eng{color:var(--soft);max-width:52ch;margin-top:10px}.eng-grille{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr))}.eng{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px}.eng h3{font-size:1.1rem;margin-bottom:8px}.eng p{font-size:.98rem;line-height:1.6}footer a{color:var(--deep-ink);text-underline-offset:3px}
 </style>
 </head>
 <body>
@@ -450,10 +451,36 @@ dialog.loupe::backdrop{background:rgba(6,20,24,.82)}
       </div>
     </div>
   </section>
+  <section class="bloc teinte" id="vie-privee">
+    <div class="wrap engagements">
+      <div>
+        <h2>Vie privée et conditions</h2>
+        <p class="intro-eng">Écrit en mots simples, pour que tu saches à quoi t'attendre avant de m'écrire.</p>
+      </div>
+      <div class="eng-grille">
+        <div class="eng">
+          <h3>Tes données ne sont pas à vendre</h3>
+          <p>Je ne conçois aucune application faite pour revendre les données personnelles de ses utilisateurs. Si un projet prenait cette direction, j'arrêterais le travail et je rembourserais les sommes déjà payées.</p>
+        </div>
+        <div class="eng">
+          <h3>Ce que ce site recueille</h3>
+          <p>Seulement ce que tu écris dans le formulaire de demande : ton nom, ton courriel et la description de ton projet. Je m'en sers pour te répondre et préparer ta soumission, rien d'autre. Aucune publicité, aucun outil de pistage, rien n'est vendu ni partagé.</p>
+        </div>
+        <div class="eng">
+          <h3>Tes droits</h3>
+          <p>Tu peux me demander en tout temps de voir, corriger ou effacer les renseignements que j'ai sur toi. Le responsable de leur protection est Timmy Villeneuve, que tu joins par le formulaire de cette page.</p>
+        </div>
+        <div class="eng">
+          <h3>Comment je travaille</h3>
+          <p>Chaque projet commence par une soumission écrite, avec un prix fixe pour le travail décrit. Rien ne commence sans ton accord, et toute demande supplémentaire fait l'objet d'une nouvelle soumission.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <dialog class="loupe" id="loupe" aria-label="Capture agrandie"><button class="fermer" aria-label="Fermer">✕</button><div class="cadre"><button class="nav prec" aria-label="Capture précédente">‹</button><img alt=""><button class="nav suiv" aria-label="Capture suivante">›</button></div></dialog>
-<footer><div class="wrap bar"><strong>Lance ton app</strong><span>Timmy Villeneuve, Joliette (Québec)</span></div></footer>
+<footer><div class="wrap bar"><strong>Lance ton app</strong><span>© 2026 Timmy Villeneuve, Joliette (Québec). Tous droits réservés.</span><a href="#vie-privee">Vie privée et conditions</a></div></footer>
 
 <script>
 const $=id=>document.getElementById(id);
