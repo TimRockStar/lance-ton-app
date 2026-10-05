@@ -229,6 +229,31 @@ dialog.loupe::backdrop{background:rgba(6,20,24,.82)}
   .tel{position:relative;width:60%;margin:-40px 0 0 auto}
 }
 .engagements{display:grid;gap:28px}.intro-eng{color:var(--soft);max-width:52ch;margin-top:10px}.eng-grille{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr))}.eng{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px}.eng h3{font-size:1.1rem;margin-bottom:8px}.eng p{font-size:.98rem;line-height:1.6}footer a{color:var(--deep-ink);text-underline-offset:3px}
+.com-etapes{list-style:none;counter-reset:e;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));margin:28px 0 34px;padding:0}
+.com-etapes li{counter-increment:e;background:var(--tint);border-radius:18px;padding:20px 20px 20px 62px;position:relative;line-height:1.55}
+.com-etapes li::before{content:counter(e);position:absolute;left:18px;top:18px;width:30px;height:30px;border-radius:50%;background:var(--coral);color:var(--coral-ink);font-family:var(--display);font-weight:800;display:grid;place-items:center}
+.com-filtres{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.com-puce{font:inherit;font-weight:600;font-size:.95rem;padding:.5em 1.05em;border-radius:999px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.com-puce[aria-pressed="true"]{background:var(--coral);border-color:var(--coral);color:var(--coral-ink)}
+.com-puce:focus-visible,.com-carte a:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.com-grille{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr))}
+.com-carte{border:1px solid var(--line);border-radius:20px;padding:20px;background:var(--paper);display:flex;flex-direction:column;gap:12px;min-width:0}
+.com-carte[hidden]{display:none}
+.com-tete{display:flex;gap:14px;align-items:center}
+.com-vig{width:54px;height:54px;flex:none;border-radius:16px;background:var(--deep);color:var(--deep-ink);font-family:var(--display);font-weight:800;font-size:1.05rem;display:grid;place-items:center}
+.com-cat{font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+.com-carte h3{font-size:1.15rem;margin:2px 0 0}
+.com-carte p{font-size:.98rem;line-height:1.55;flex:1}
+.com-pied{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.com-pied a{font-weight:700}
+.com-note{margin-top:16px;color:var(--soft);font-size:.98rem}
+.com-bas{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));margin-top:34px}
+.com-regles,.com-appel{border-radius:20px;padding:24px}
+.com-regles{background:var(--tint)}
+.com-regles ul{margin:12px 0 0;padding-left:1.1em;display:grid;gap:8px;line-height:1.55;font-size:.98rem}
+.com-avis{margin-top:14px;font-size:.9rem;color:var(--soft)}
+.com-appel{background:var(--deep);color:var(--deep-soft);display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.com-appel h3{color:var(--deep-ink)}
 </style>
 </head>
 <body>
@@ -249,6 +274,7 @@ dialog.loupe::backdrop{background:rgba(6,20,24,.82)}
       <a href="#services">Services</a>
       <a href="#realisations">Réalisations</a>
       <a href="#histoire">Mon histoire</a>
+      <a href="#communaute">Communauté</a>
       <a class="btn" href="#soumission">Demander une soumission</a>
     </nav>
   </div>
@@ -409,6 +435,52 @@ dialog.loupe::backdrop{background:rgba(6,20,24,.82)}
     </div>
   </section>
 
+  <section class="bloc" id="communaute">
+    <div class="wrap">
+      <h2>La communauté : teste, et fais tester</h2>
+      <p class="lede">Trouver des testeurs, c'est l'étape où bien des créateurs restent bloqués. Je le sais, j'y ai passé des semaines. Ici, des gens d'ici essaient les applications des autres et s'échangent des commentaires honnêtes, en français.</p>
+      <ol class="com-etapes">
+        <li><strong>Tu proposes ton application.</strong> Un lien vers le Play Store, l'App Store ou une application web.</li>
+        <li><strong>Je la vérifie et je la publie.</strong> Je l'essaie moi-même, puis je la classe dans sa catégorie.</li>
+        <li><strong>La communauté l'essaie.</strong> Tu reçois de vrais commentaires, et tu en donnes aux autres.</li>
+      </ol>
+      <div class="com-filtres" role="group" aria-label="Filtrer par catégorie">
+        <button type="button" class="com-puce" data-filtre="toutes" aria-pressed="true">Toutes</button>
+        <button type="button" class="com-puce" data-filtre="alimentation" aria-pressed="false">Alimentation</button>
+        <button type="button" class="com-puce" data-filtre="apprendre" aria-pressed="false">Apprendre</button>
+        <button type="button" class="com-puce" data-filtre="logement" aria-pressed="false">Logement</button>
+        <button type="button" class="com-puce" data-filtre="outils" aria-pressed="false">Outils</button>
+        <button type="button" class="com-puce" data-filtre="affaires" aria-pressed="false">Affaires</button>
+      </div>
+      <div class="com-grille" id="com-grille">
+        <article class="com-carte" data-cat="alimentation"><div class="com-tete"><div class="com-vig" aria-hidden="true">SG</div><div><span class="com-cat">Alimentation</span><h3>SmartGrocer</h3></div></div><p>Économiser à l'épicerie : recettes selon les spéciaux, liste avec les prix et zéro gaspillage.</p><div class="com-pied"><span class="etat">Cherche des testeurs</span><a href="https://smartgrocer.health/beta.html" target="_blank" rel="noopener">Essayer</a></div></article>
+        <article class="com-carte" data-cat="apprendre"><div class="com-tete"><div class="com-vig" aria-hidden="true">AS</div><div><span class="com-cat">Apprendre</span><h3>AngloShift</h3></div></div><p>Pratiquer l'anglais du travail à voix haute, avec un tuteur et un parcours par étapes.</p><div class="com-pied"><span class="etat">Cherche des testeurs</span><a href="https://timrockstar.github.io/angloshift/" target="_blank" rel="noopener">Essayer</a></div></article>
+        <article class="com-carte" data-cat="logement"><div class="com-tete"><div class="com-vig" aria-hidden="true">LC</div><div><span class="com-cat">Logement</span><h3>LoyerClair</h3></div></div><p>Calculer une hausse de loyer raisonnable, pour les locataires du Québec.</p><div class="com-pied"><span class="etat">En ligne</span></div></article>
+        <article class="com-carte" data-cat="apprendre"><div class="com-tete"><div class="com-vig" aria-hidden="true">MF</div><div><span class="com-cat">Apprendre</span><h3>MyFirstApp</h3></div></div><p>Une formation guidée pour créer sa toute première application.</p><div class="com-pied"><span class="etat cours">En construction</span></div></article>
+        <article class="com-carte" data-cat="outils"><div class="com-tete"><div class="com-vig" aria-hidden="true">GS</div><div><span class="com-cat">Outils</span><h3>Green Screen Remover</h3></div></div><p>Retirer le fond vert d'une vidéo, directement dans le navigateur.</p><div class="com-pied"><span class="etat">En ligne</span></div></article>
+        <article class="com-carte" data-cat="affaires"><div class="com-tete"><div class="com-vig" aria-hidden="true">BC</div><div><span class="com-cat">Affaires</span><h3>BilanClair</h3></div></div><p>Revenus et dépenses des travailleurs autonomes du Québec.</p><div class="com-pied"><span class="etat cours">En construction</span></div></article>
+      </div>
+      <p class="com-note">Pour l'instant, ce sont mes propres applications. La tienne peut être la prochaine.</p>
+      <div class="com-bas">
+        <div class="com-regles">
+          <h3>Les règles de la maison</h3>
+          <ul>
+            <li>Seulement des liens vers le Play Store, l'App Store ou une application web. Aucun fichier à télécharger.</li>
+            <li>J'essaie chaque application avant de la publier, avec l'accord écrit de son créateur.</li>
+            <li>On échange des commentaires, jamais des étoiles ou des avis sur les Stores.</li>
+            <li>Un doute sur une application ? Écris-moi, je la retire d'abord et je vérifie ensuite.</li>
+          </ul>
+          <p class="com-avis">Les applications sont partagées par leurs créateurs. Lance ton app ne les garantit pas.</p>
+        </div>
+        <div class="com-appel">
+          <h3>Tu as une application à faire tester ?</h3>
+          <p>Propose-la, c'est gratuit. Le groupe Facebook de la communauté ouvrira au lancement du site.</p>
+          <a class="btn" href="#soumission" id="com-proposer">Proposer mon application</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="bloc" id="soumission">
     <div class="wrap">
       <h2>Décris-moi ton projet</h2>
@@ -424,6 +496,7 @@ dialog.loupe::backdrop{background:rgba(6,20,24,.82)}
                 <option>Création : je veux qu'on la construise pour moi</option>
                 <option>Publication : mon application est prête, il faut la mettre sur les Stores</option>
                 <option>Sécurité : je veux protéger mon application et mes comptes</option>
+                <option>Communauté : je veux faire tester mon application</option>
                 <option>Je ne suis pas certain</option>
               </select></div>
             <div class="champ"><label for="f-delai">Pour quand</label>
@@ -509,6 +582,15 @@ form.addEventListener('submit',e=>{
   });
   recap.hidden=false;recap.scrollIntoView({block:'nearest'});
 });
+
+// Communauté : filtre par catégorie, et bouton qui présélectionne le bon choix dans le formulaire
+document.querySelectorAll('.com-puce').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.com-puce').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
+  const f=b.dataset.filtre;
+  document.querySelectorAll('.com-carte').forEach(c=>{c.hidden=!(f==='toutes'||c.dataset.cat===f);});
+}));
+const comBtn=document.getElementById('com-proposer');
+if(comBtn) comBtn.addEventListener('click',()=>{const sel=document.getElementById('f-service'); if(sel){[...sel.options].forEach((o,i)=>{if(o.textContent.indexOf('Communauté')===0) sel.selectedIndex=i;});}});
 
 document.querySelectorAll('.galerie').forEach(g=>{
   const piste=g.querySelector('.piste'), imgs=[...piste.children], pts=g.querySelector('.points');
