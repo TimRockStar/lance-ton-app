@@ -585,7 +585,7 @@ form.addEventListener('submit',async e=>{
   const texte='Nouvelle demande de soumission (site Lance ton app)\n\nNom : '+d.nom.trim()+'\nCourriel : '+d.courriel.trim()+'\nBesoin : '+d.service+'\nDélai : '+d.delai+'\nLangue du site : '+LANGUE+'\n\nProjet :\n'+d.projet.trim();
   const libelle=btnEnvoi.textContent; btnEnvoi.disabled=true; btnEnvoi.textContent=LANGUE==='en'?'Sending…':'Envoi en cours…';
   try{
-    await emailjs.send('service_lleoy3h','template_8ru13i8',{
+    await emailjs.send('service_lleoy3h','template_d1x7gl7',{
       subject:'Lance ton app : demande de '+d.nom.trim(), title:'Lance ton app : demande de '+d.nom.trim(), message:texte,
       commentaire:texte, from_name:d.nom.trim(), name:d.nom.trim(), reply_to:d.courriel.trim(), email:d.courriel.trim(),
       besoin:d.service, delai:d.delai, projet:d.projet.trim()
