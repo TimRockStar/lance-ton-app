@@ -6,7 +6,7 @@
 <title>Lance ton app (essai)</title>
 <meta name="description" content="Lance ton app : de ton idée jusqu'au Store. Création, accompagnement et publication d'applications.">
 <meta name="robots" content="noindex, nofollow">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;700;800&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;700;800&family=Figtree:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap">
 <style>html{-webkit-text-size-adjust:100%}
 body{margin:0}
 img{max-width:100%}
@@ -267,79 +267,117 @@ dialog.loupe::backdrop{background:rgba(6,20,24,.82)}
 .bandeau figcaption{margin-top:8px;font-size:.85rem;color:var(--soft)}
 .bandeau figcaption a{color:inherit}
 
-/* ===== version d'essai : haut de page sombre, effets au défilement ===== */
-:root{--x-nuit:#081a30;--x-nuit2:#0d2744;--x-tq:#2fb6b2}
-header{background:rgba(8,26,48,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.1);--logo-b:#eaf1f8;--logo-a:#3cc9c4}
+/* ===== MAKEOVER : noir et rouge ===== */
+:root:root:root{
+  color-scheme:dark;
+  --paper:#09090b;--tint:#101013;--ink:#f4f4f5;--soft:#a3a3ad;--line:#2a2a30;
+  --canard:#ff6b76;--canard-ink:#ffffff;--coral:#d62839;--coral-ink:#ffffff;--beurre:#3a1519;
+  --t-aqua:#15151a;--t-peche:#1a1215;--t-beurre:#141417;--t-lilas:#17141a;
+  --deep:#050506;--deep-ink:#ffffff;--deep-soft:#a3a3ad;--logo-a:#ff4d5a;--logo-b:#f4f4f5;--ok:#4ade80;
+  --acc:#e63946;--acc2:#ff6b76;
+}
+body{background:var(--paper)}
+header{background:rgba(5,5,6,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
 header .mark{color:#fff}
-header nav a:not(.btn){color:#eaf1f8;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9rem}
-header nav a:not(.btn)::before{content:"// ";color:var(--x-tq)}
-header .langue{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
-.x-hero{position:relative;overflow:hidden;background:radial-gradient(1100px 600px at 78% 40%,#12457a 0%,transparent 60%),linear-gradient(180deg,var(--x-nuit),var(--x-nuit2));color:#fff}
-.x-hero .hero-grid{position:relative;z-index:2;padding-block:72px 84px}
-.x-hero h1{color:#fff;font-size:clamp(2.8rem,6.4vw,5.2rem);line-height:1.02}
-.x-hero h1 .acc{color:var(--x-tq)}
-.x-hero .lede,.x-hero .preuves li,.x-hero .note-demo{color:#c5d6ea}
-.x-hero .ordi,.x-hero .tel{color:var(--ink)}
-.x-hero .preuves svg{color:var(--x-tq)}
-.x-hero .btn.calme{color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)}
-.x-kick{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:var(--x-tq);margin:0 0 14px}
-.x-puces{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
-.x-puces li{padding:.35em 1em;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:#eaf1f8;font-size:.95rem;background:rgba(255,255,255,.05)}
-.x-hero .lede{margin-top:20px}
-.x-formes{position:absolute;inset:0;z-index:1;pointer-events:none}
-.x-forme{position:absolute;will-change:transform}
-.x-glow-hero{position:absolute;right:-10%;top:10%;width:60vw;height:60vw;max-width:760px;max-height:760px;border-radius:50%;background:radial-gradient(circle,rgba(47,182,178,.28),transparent 65%);filter:blur(10px)}
-.x-cube{width:var(--s);height:var(--s);position:relative;transform-style:preserve-3d;animation:x-tourne 18s linear infinite}
-.x-forme{perspective:700px}
-.x-cube i{position:absolute;inset:0;border:1px solid rgba(60,201,196,.55);background:linear-gradient(135deg,rgba(47,182,178,.22),rgba(28,70,115,.45));backdrop-filter:blur(2px)}
-.x-cube i:nth-child(1){transform:translateZ(calc(var(--s)/2))}
-.x-cube i:nth-child(2){transform:rotateY(180deg) translateZ(calc(var(--s)/2))}
-.x-cube i:nth-child(3){transform:rotateY(90deg) translateZ(calc(var(--s)/2))}
-.x-cube i:nth-child(4){transform:rotateY(-90deg) translateZ(calc(var(--s)/2))}
-.x-cube i:nth-child(5){transform:rotateX(90deg) translateZ(calc(var(--s)/2))}
-.x-cube i:nth-child(6){transform:rotateX(-90deg) translateZ(calc(var(--s)/2))}
-@keyframes x-tourne{from{transform:rotateX(-20deg) rotateY(0)}to{transform:rotateX(-20deg) rotateY(360deg)}}
-.x-orbe{display:block;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#e8fffe,#2fb6b2 55%,#1c7d85);box-shadow:0 0 40px 10px rgba(47,182,178,.55);animation:x-flotte 6s ease-in-out infinite}
-@keyframes x-flotte{50%{transform:translateY(-14px)}}
+header nav a:not(.btn){color:#e4e4e7;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88rem;letter-spacing:.02em}
+header nav a:not(.btn)::before{content:"// ";color:var(--acc)}
+header .langue{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+.btn{background:var(--coral);color:#fff}
+.btn.calme{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.3)}
+nav .btn{color:#fff}
+footer{background:#050506;border-top:1px solid var(--line)}
+.bloc.teinte{background:var(--tint)}
 
-/* scène : téléphone qui tourne pendant le défilement */
-.x-scene{position:relative;height:520vh;background:linear-gradient(180deg,var(--x-nuit2),var(--x-nuit))}
+/* haut de page */
+.x-hero{position:relative;overflow:hidden;background:#050506}
+.x-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 520px at 8% 8%,rgba(214,40,57,.36),transparent 62%),radial-gradient(800px 600px at 85% 55%,rgba(214,40,57,.20),transparent 62%)}
+.x-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,#09090b 100%);pointer-events:none}
+.x-hero .hero-grid{position:relative;z-index:2;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;padding-block:72px 40px}
+.x-hero h1{color:#fff;font-size:clamp(2.7rem,5.6vw,4.6rem);line-height:1.02;font-weight:800}
+.x-hero h1 .acc{color:var(--acc)}
+.x-hero .lede{color:#b4b4bd;margin-top:20px;font-size:1.15rem;max-width:34ch}
+.x-kick{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acc2);margin:0 0 14px}
+.x-puces{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.x-puces li{padding:.4em 1.1em;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#e4e4e7;font-size:.95rem;background:rgba(255,255,255,.04)}
+.x-hero .actions{margin-top:26px}
+.x-ligne{margin-top:30px;display:flex;align-items:center;gap:14px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#8d8d97}
+.x-ligne i{display:block;width:34px;height:2px;background:var(--acc)}
+.x-formes{position:absolute;inset:0;z-index:1;pointer-events:none}
+.x-lueur{position:absolute;right:6%;top:16%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(214,40,57,.28),transparent 66%);filter:blur(14px)}
+.x-trait{position:absolute;height:1px;width:46%;background:linear-gradient(90deg,transparent,rgba(255,77,90,.7),transparent);transform:rotate(-28deg)}
+.x-trait.t1{right:-6%;top:22%}.x-trait.t2{right:8%;top:46%;width:30%;opacity:.55}
+.x-note{position:absolute;margin:0;font-family:'Caveat',cursive;font-size:1.7rem;line-height:1.05;color:rgba(255,255,255,.3);max-width:9em;will-change:transform}
+.x-note.n1{left:2%;top:11%;transform:rotate(-9deg)}
+.x-note.n2{right:3%;top:8%;transform:rotate(7deg);text-align:right}
+.x-note.n3{left:44%;bottom:23%;transform:rotate(-5deg)}
+
+/* portable + téléphone */
+.x-appareils{position:relative;padding:20px 0 40px}
+.x-portable{position:relative;width:100%;max-width:640px;margin-left:auto;transform:perspective(1800px) rotateY(-7deg) rotateX(2deg);transform-origin:70% 60%;filter:drop-shadow(0 40px 50px rgba(0,0,0,.6))}
+.x-couvercle{position:relative;border-radius:16px 16px 5px 5px;background:linear-gradient(160deg,#2c2c31,#0d0d0f 40%);padding:2.6% 2.6% 3.4%;box-shadow:inset 0 0 0 1px #3a3a41,0 0 0 1px #000}
+.x-couvercle::before{content:"";position:absolute;left:50%;top:1.1%;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:#1b1b20;box-shadow:0 0 0 1px #2d2d33}
+.x-fenetre{aspect-ratio:16/10;border-radius:4px;overflow:hidden;background:#0a0a0c;box-shadow:inset 0 0 0 1px #000}
+.x-ecran{display:block;width:100%;height:100%;object-fit:cover;object-position:top left}
+.x-socle{position:relative;height:16px;margin:0 -6%;border-radius:0 0 18px 18px/0 0 14px 14px;background:linear-gradient(#4a4a51,#232327 60%,#15151a);box-shadow:0 1px 0 #5a5a62 inset}
+.x-socle::before{content:"";position:absolute;left:50%;top:0;width:18%;height:5px;margin-left:-9%;border-radius:0 0 8px 8px;background:#101013}
+.x-tel{position:absolute;right:-3%;bottom:0;width:27%;aspect-ratio:9/18.6;border-radius:30px;border:6px solid #131316;background:#131316;overflow:hidden;box-shadow:0 0 0 1.5px var(--acc),0 30px 60px rgba(0,0,0,.7),0 0 70px rgba(214,40,57,.4);transform:rotate(3deg)}
+.x-tel img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;max-width:none}
+
+/* trois panneaux */
+.x-panneaux{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-block:20px 72px}
+.x-pan{display:block;color:var(--ink);text-decoration:none}
+.x-pan .num{font-family:var(--display);font-size:1.5rem;color:#fff}
+.x-pan .fl{display:inline-block;vertical-align:middle;margin-left:14px;width:calc(100% - 52px);height:1px;background:linear-gradient(90deg,rgba(255,255,255,.4),transparent)}
+.x-pan .cadre{margin:14px 0 14px;height:190px;border-radius:12px;border:1px solid var(--line);background:#0c0c0f;overflow:hidden;transition:border-color .2s,transform .2s}
+.x-pan:hover .cadre{border-color:var(--acc);transform:translateY(-3px)}
+.x-pan .cadre img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;max-width:none}
+.x-pan .cadre.cit{display:grid;place-items:center;padding:20px;background:linear-gradient(135deg,#1a0c0f,#0c0c0f)}
+.x-note-cit{font-family:'Caveat',cursive;font-size:1.7rem;line-height:1.1;color:#f0f0f2;text-align:center}
+.x-pan h3{font-size:1.1rem;letter-spacing:.06em;text-transform:uppercase}
+.x-pan p{color:var(--soft);font-size:.98rem;margin-top:4px}
+.x-demo-cadre{margin-top:28px;padding:28px;border-radius:24px;border:1px solid var(--line);background:radial-gradient(700px 300px at 80% 0,rgba(214,40,57,.18),transparent 70%),#0c0c0f}
+
+/* scène du téléphone qui tourne */
+.x-scene{position:relative;height:520vh;background:#09090b}
 .x-pin{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
 .x-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;width:100%}
 .x-txt{color:#fff;max-width:520px}
 .x-txt h2{color:#fff;font-size:clamp(2rem,4.2vw,3.3rem)}
-.x-cap{margin-top:28px;min-height:7.5em;transition:opacity .25s}
-.x-cap strong{display:block;font-family:var(--display);font-size:1.7rem;color:var(--x-tq);margin-bottom:6px}
-.x-cap span{color:#c5d6ea;font-size:1.1rem;display:block;max-width:40ch}
+.x-cap{margin-top:28px;min-height:7.5em}
+.x-cap strong{display:block;font-family:var(--display);font-size:1.7rem;color:var(--acc2);margin-bottom:6px}
+.x-cap span{color:#b4b4bd;font-size:1.1rem;display:block;max-width:40ch}
 .x-pts{display:flex;gap:8px;margin-top:6px}
-.x-pts i{width:34px;height:4px;border-radius:2px;background:rgba(255,255,255,.22);transition:background .25s}
-.x-pts i.on{background:var(--x-tq)}
-.x-defile{margin-top:22px;color:#8fb0cf;font-size:.9rem;font-family:ui-monospace,Menlo,Consolas,monospace}
+.x-pts i{width:34px;height:4px;border-radius:2px;background:rgba(255,255,255,.2);transition:background .25s}
+.x-pts i.on{background:var(--acc)}
+.x-defile{margin-top:22px;color:#8d8d97;font-size:.9rem;font-family:ui-monospace,Menlo,Consolas,monospace}
 .x-stage{position:relative;display:grid;place-items:center;perspective:1400px;height:min(78vh,720px)}
-.x-glow{position:absolute;width:min(70%,460px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(47,182,178,.45),transparent 68%);filter:blur(8px)}
+.x-glow{position:absolute;width:min(70%,460px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(214,40,57,.5),transparent 68%);filter:blur(8px)}
 .x-phone{position:relative;height:min(70vh,640px);aspect-ratio:9/18.5;transform-style:preserve-3d;will-change:transform}
-.x-face{position:absolute;inset:0;border-radius:34px;border:7px solid #0b1f38;background:#0b1f38;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 0 0 2px rgba(255,255,255,.22),0 30px 70px rgba(0,0,0,.55)}
+.x-face{position:absolute;inset:0;border-radius:34px;border:7px solid #131316;background:#131316;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 0 0 2px rgba(255,77,90,.55),0 30px 70px rgba(0,0,0,.6)}
 .x-face img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;max-width:none}
 .x-back{transform:rotateY(180deg)}
 .x-statique{display:none}
+
 @media (max-width:860px){
+  .x-hero .hero-grid{grid-template-columns:1fr;padding-block:44px 20px}
+  .x-appareils{padding-bottom:24px}.x-portable{transform:none}
+  .x-panneaux{grid-template-columns:1fr;padding-bottom:48px}
+  .x-note{display:none}
   .x-grid{grid-template-columns:1fr;gap:12px;align-content:center}
-  .x-txt{max-width:none}
-  .x-txt h2{font-size:1.7rem}
+  .x-txt{max-width:none}.x-txt h2{font-size:1.7rem}
   .x-cap{margin-top:12px;min-height:6em}
-  .x-stage{height:min(52vh,460px)}
-  .x-phone{height:min(48vh,420px)}
+  .x-stage{height:min(52vh,460px)}.x-phone{height:min(48vh,420px)}
   .x-defile{display:none}
+  .x-demo-cadre{padding:14px}
 }
 
-@media (max-width:860px){.x-forme{opacity:.3}}
-/* curseur suiveur et apparitions */
+/* curseur et apparitions */
 .x-cur{position:fixed;left:0;top:0;z-index:9999;pointer-events:none;opacity:0;transition:opacity .2s}
 .x-cur.vu{opacity:1}
 .x-cur b{position:absolute;display:block;border-radius:50%}
-.x-cur .o{width:38px;height:38px;margin:-19px 0 0 -19px;border:2px solid var(--x-tq);transition:width .2s,height .2s,margin .2s,background .2s}
-.x-cur .i{width:8px;height:8px;margin:-4px 0 0 -4px;background:var(--x-tq)}
-.x-cur.gros .o{width:66px;height:66px;margin:-33px 0 0 -33px;background:rgba(47,182,178,.18)}
+.x-cur .o{width:38px;height:38px;margin:-19px 0 0 -19px;border:2px solid var(--acc);transition:width .2s,height .2s,margin .2s,background .2s}
+.x-cur .i{width:8px;height:8px;margin:-4px 0 0 -4px;background:var(--acc)}
+.x-cur.gros .o{width:66px;height:66px;margin:-33px 0 0 -33px;background:rgba(230,57,70,.2)}
 .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .rv.vu{opacity:1;transform:none}
 .bandeau{overflow:hidden;border-radius:20px}
@@ -348,16 +386,33 @@ header .langue{background:transparent;color:#fff;border-color:rgba(255,255,255,.
 @media (prefers-reduced-motion:reduce){
   .x-cur{display:none}
   .rv{opacity:1;transform:none;transition:none}
-  .x-cube,.x-orbe{animation:none}
   .x-scene{height:auto;padding-block:56px}
   .x-pin{position:static;height:auto}
   .x-stage{display:none}
   .x-grid{grid-template-columns:1fr}
   .x-cap,.x-pts,.x-defile{display:none}
   .x-statique{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px;margin-top:28px}
-  .x-statique figure{margin:0;color:#c5d6ea;text-align:center;font-size:.9rem}
-  .x-statique img{width:100%;height:auto;border-radius:20px;border:6px solid #0b1f38}
+  .x-statique figure{margin:0;color:#b4b4bd;text-align:center;font-size:.9rem}
+  .x-statique img{width:100%;height:auto;border-radius:20px;border:6px solid #131316}
 }
+
+/* corrections */
+header .wrap.bar{max-width:1240px}
+header nav{gap:18px;flex-wrap:nowrap}
+header nav a:not(.btn){font-size:.82rem;white-space:nowrap}
+header nav .btn{padding:.5em 1em;font-size:.92rem;white-space:nowrap}
+@media (max-width:980px){header nav{flex-wrap:wrap;gap:12px}}
+.x-note.n1{left:41%;top:8%}
+.x-note.n2{right:2%;top:9%}
+.x-note.n3{display:none}
+.case.prix{background:rgba(214,40,57,.22);color:#fff}
+.case.prix small{color:#ffb3b9}
+.ordi{border-color:#2b2b30;background:#0c0c0f}
+.tel{border-color:#2b2b30!important}
+.essai input{background:#0c0c0f}
+.x-front{transform:translateZ(7px)}
+.x-back{transform:rotateY(180deg) translateZ(7px)}
+.x-epais{position:absolute;inset:0;border-radius:34px;background:linear-gradient(90deg,#2b2b31,#17171a);box-shadow:0 0 0 1px rgba(255,77,90,.35)}
 </style>
 </head>
 <body>
@@ -387,32 +442,75 @@ header .langue{background:transparent;color:#fff;border-color:rgba(255,255,255,.
 </header>
 
 <main id="haut">
-  <div class="hero x-hero">
+  <div class="hero x-hero" id="haut2">
     <div class="x-formes" aria-hidden="true">
-      <div class="x-glow-hero"></div>
-      <div class="x-forme" data-depth="0.9" style="left:6%;top:14%;--s:84px"><div class="x-cube"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-      <div class="x-forme" data-depth="1.6" style="left:46%;top:6%;--s:46px"><div class="x-cube" style="animation-duration:14s"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-      <div class="x-forme" data-depth="0.5" style="right:4%;bottom:10%;--s:110px"><div class="x-cube" style="animation-duration:24s"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-      <div class="x-forme" data-depth="2.2" style="left:40%;bottom:12%"><span class="x-orbe"></span></div>
+      <div class="x-lueur"></div>
+      <div class="x-trait t1"></div><div class="x-trait t2"></div>
+      <p class="x-note n1" data-depth="0.8">Même savoir-faire, idées différentes</p>
+      <p class="x-note n2" data-depth="1.3">Tu as l'idée. Je m'occupe du reste.</p>
+      <p class="x-note n3" data-depth="0.6">Toujours en construction…</p>
     </div>
     <div class="wrap hero-grid">
-      <div>
+      <div class="x-gauche">
         <p class="x-kick">// Lance ton app</p>
         <h1>De ton idée jusqu'au <span class="acc">Store.</span></h1>
-        <ul class="x-puces"><li>Applications web</li><li>Android</li><li>iPhone</li><li>Sans jargon</li></ul>
         <p class="lede">J'aide les gens et les petites entreprises du Québec à créer leur application et à la publier, même sans connaissances techniques.</p>
+        <ul class="x-puces"><li>Applications web</li><li>Android</li><li>iPhone</li><li>Sans jargon</li></ul>
         <div class="actions">
           <a class="btn" href="#soumission">Demander une soumission gratuite</a>
           <a class="btn calme" href="#realisations">Voir mes réalisations</a>
         </div>
-        <ul class="preuves">
-          <li><svg class="i"><use href="#i-crochet"/></svg>En français, sans jargon</li>
-          <li><svg class="i"><use href="#i-crochet"/></svg>Une seule application, sur téléphone et sur ordinateur</li>
-          <li><svg class="i"><use href="#i-crochet"/></svg>Publication sur Google Play et sur l'App Store</li>
-        </ul>
+        <p class="x-ligne"><i></i>Création / Accompagnement / Publication</p>
       </div>
+      <div class="x-appareils" aria-label="Une application affichée sur un ordinateur portable et sur un téléphone">
+        <div class="x-portable">
+          <div class="x-couvercle"><div class="x-fenetre"><img class="x-ecran" src="img/apercu-site.jpg" alt="" width="1280" height="800"></div></div>
+          <div class="x-socle"></div>
+        </div>
+        <div class="x-tel"><img src="img/app-smartgrocer.jpg" alt="" width="480" height="932"></div>
+      </div>
+    </div>
+    <div class="wrap x-panneaux">
+      <a class="x-pan" href="#realisations"><span class="num">01</span><span class="fl"></span>
+        <div class="cadre"><img src="img/app-smartgrocer.jpg" alt="" width="480" height="932" loading="lazy"></div>
+        <h3>Réalisations</h3><p>Des applications déjà en ligne, de l'idée jusqu'au Store.</p></a>
+      <a class="x-pan" href="#services"><span class="num">02</span><span class="fl"></span>
+        <div class="cadre photo"><img src="https://images.unsplash.com/photo-1618788372246-79faff0c3742?auto=format&fit=crop&w=700&q=70" alt="" width="700" height="440" loading="lazy"></div>
+        <h3>Services</h3><p>Apprendre à bâtir, me confier ton projet, ou publier sur les stores.</p></a>
+      <a class="x-pan" href="#histoire"><span class="num">03</span><span class="fl"></span>
+        <div class="cadre cit"><span class="x-note-cit">J'ai fait toutes les erreurs pour que tu n'aies pas à les faire.</span></div>
+        <h3>Mon histoire</h3><p>Un accompagnement d'une personne à une autre, à prix honnête.</p></a>
+    </div>
+  </div>
 
-      <div class="demo">
+  <section class="x-scene" id="vitrine" aria-label="Quelques applications que j'ai construites">
+    <div class="x-pin">
+      <div class="wrap x-grid">
+        <div class="x-txt">
+          <p class="x-kick">// Réalisations</p>
+          <h2>Des idées très différentes. Un même savoir-faire.</h2>
+          <div class="x-cap" aria-live="polite"><strong id="x-nom"></strong><span id="x-desc"></span></div>
+          <div class="x-pts" id="x-pts" aria-hidden="true"></div>
+          <p class="x-defile" aria-hidden="true">Fais défiler ↓</p>
+        </div>
+        <div class="x-stage" aria-hidden="true">
+          <div class="x-glow"></div>
+          <div class="x-phone" id="x-phone">
+            <div class="x-face x-front"><img alt="" id="x-img-a" src="img/app-smartgrocer.jpg" width="480" height="800"></div>
+            <div class="x-face x-back"><img alt="" id="x-img-b" src="img/app-angloshift.jpg" width="480" height="800"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap x-statique"><figure><img src="img/app-smartgrocer.jpg" alt="SmartGrocer" width="480" height="800" loading="lazy"><figcaption>SmartGrocer</figcaption></figure><figure><img src="img/app-angloshift.jpg" alt="AngloShift" width="480" height="800" loading="lazy"><figcaption>AngloShift</figcaption></figure><figure><img src="img/app-loyerclair.jpg" alt="LoyerClair" width="480" height="800" loading="lazy"><figcaption>LoyerClair</figcaption></figure><figure><img src="img/app-bilanclair.jpg" alt="BilanClair" width="480" height="800" loading="lazy"><figcaption>BilanClair</figcaption></figure><figure><img src="img/app-greenscreen.jpg" alt="Green Screen Remover" width="480" height="800" loading="lazy"><figcaption>Green Screen Remover</figcaption></figure><figure><img src="img/app-myfirstapp.jpg" alt="MyFirstApp" width="480" height="800" loading="lazy"><figcaption>MyFirstApp</figcaption></figure></div>
+  </section>
+
+  <section class="bloc" id="essai-outil">
+    <div class="wrap">
+      <h2>Un outil sur mesure, essaie-le</h2>
+      <p class="lede">Voici le genre d'outil que je construis pour un commerce. Change le nom et bouge le curseur.</p>
+      <div class="x-demo-cadre">
+        <div class="demo">
         <div class="essai">
           <label for="demo-nom">Écris le nom de ton entreprise, pour voir</label>
           <input id="demo-nom" value="Paysagement Tremblay" maxlength="32" autocomplete="off">
@@ -441,33 +539,11 @@ header .langue{background:transparent;color:#fff;border-color:rgba(255,255,255,.
         </div>
         <p class="note-demo">Bouge le curseur du téléphone : l'ordinateur suit. C'est un exemple fictif du genre d'outil que je construis.</p>
       </div>
-    </div>
-  </div>
-
-
-  <section class="x-scene" id="vitrine" aria-label="Quelques applications que j'ai construites">
-    <div class="x-pin">
-      <div class="wrap x-grid">
-        <div class="x-txt">
-          <p class="x-kick">// Réalisations</p>
-          <h2>Des idées très différentes. Un même savoir-faire.</h2>
-          <div class="x-cap" aria-live="polite"><strong id="x-nom"></strong><span id="x-desc"></span></div>
-          <div class="x-pts" id="x-pts" aria-hidden="true"></div>
-          <p class="x-defile" aria-hidden="true">Fais défiler ↓</p>
-        </div>
-        <div class="x-stage" aria-hidden="true">
-          <div class="x-glow"></div>
-          <div class="x-phone" id="x-phone">
-            <div class="x-face x-front"><img alt="" id="x-img-a" src="img/app-smartgrocer.jpg" width="480" height="800"></div>
-            <div class="x-face x-back"><img alt="" id="x-img-b" src="img/app-angloshift.jpg" width="480" height="800"></div>
-          </div>
-        </div>
       </div>
     </div>
-    <div class="wrap x-statique"><figure><img src="img/app-smartgrocer.jpg" alt="SmartGrocer" width="480" height="800" loading="lazy"><figcaption>SmartGrocer</figcaption></figure><figure><img src="img/app-angloshift.jpg" alt="AngloShift" width="480" height="800" loading="lazy"><figcaption>AngloShift</figcaption></figure><figure><img src="img/app-loyerclair.jpg" alt="LoyerClair" width="480" height="800" loading="lazy"><figcaption>LoyerClair</figcaption></figure><figure><img src="img/app-bilanclair.jpg" alt="BilanClair" width="480" height="800" loading="lazy"><figcaption>BilanClair</figcaption></figure><figure><img src="img/app-greenscreen.jpg" alt="Green Screen Remover" width="480" height="800" loading="lazy"><figcaption>Green Screen Remover</figcaption></figure><figure><img src="img/app-myfirstapp.jpg" alt="MyFirstApp" width="480" height="800" loading="lazy"><figcaption>MyFirstApp</figcaption></figure></div>
   </section>
 
-<section class="bloc">
+  <section class="bloc">
     <div class="wrap">
       <h2>Comment ça se passe</h2>
       <p class="lede">Quatre étapes, dans cet ordre. Tu sais toujours où on en est.</p>
@@ -745,7 +821,7 @@ const comBtn=document.getElementById('com-proposer');
 if(comBtn) comBtn.addEventListener('click',()=>{const sel=document.getElementById('f-service'); if(sel){sel.selectedIndex=4;}});
 
 // ---- Site bilingue : le français est dans la page, l'anglais dans ce dictionnaire ----
-const EN={"De ton idée jusqu'au <span class=\"acc\">Store.</span>": "From your idea to the <span class=\"acc\">Store.</span>", "Applications web": "Web apps", "Sans jargon": "No jargon", "// Réalisations": "// My work", "Des idées très différentes. Un même savoir-faire.": "Very different ideas. The same know-how.", "Fais défiler ↓": "Scroll ↓", "Blogue": "Blog", "J'ai fait toutes les erreurs pour que tu n'aies pas à les faire.": "I made all the mistakes so you don't have to.", "Un accompagnement d'une personne à une autre, à prix honnête.": "One-on-one guidance, at an honest price.", "Services": "Services", "Réalisations": "My work", "Mon histoire": "My story", "Communauté": "Community", "Demander une soumission": "Request a quote", "De ton idée jusqu'au Store.": "From your idea to the Store.", "J'aide les gens et les petites entreprises du Québec à créer leur application et à la publier, même sans connaissances techniques.": "I help people and small businesses in Quebec create their app and publish it, even with no technical background.", "Demander une soumission gratuite": "Request a free quote", "Voir mes réalisations": "See my work", "En français, sans jargon": "In plain words, no jargon", "Une seule application, sur téléphone et sur ordinateur": "One app, on phone and on computer", "Publication sur Google Play et sur l'App Store": "Publishing on Google Play and the App Store", "Écris le nom de ton entreprise, pour voir": "Type your business name to see", "Soumission": "Quote", "Demandes": "Requests", "Clients": "Clients", "Soumission pour une tonte": "Quote for a lawn mowing", "Superficie du terrain": "Lot size", "Prix estimé": "Estimated price", "Superficie": "Size", "Demandes reçues cette semaine": "Requests received this week", "Tonte et bordures<b>Nouvelle</b>": "Mowing and edging<b>New</b>", "Taille de haie<b>Soumission envoyée</b>": "Hedge trimming<b>Quote sent</b>", "Ouverture de terrain<b>Acceptée</b>": "Spring cleanup<b>Accepted</b>", "Envoyer": "Send", "Bouge le curseur du téléphone : l'ordinateur suit. C'est un exemple fictif du genre d'outil que je construis.": "Move the slider on the phone: the computer follows. This is a made-up example of the kind of tool I build.", "Comment ça se passe": "How it works", "Quatre étapes, dans cet ordre. Tu sais toujours où on en est.": "Four steps, in this order. You always know where we are.", "Ton idée": "Your idea", "On clarifie ce que l'application doit faire, et pour qui.": "We make clear what the app must do, and for whom.", "La construction": "The build", "Je la bâtis, ou je te guide pour la bâtir toi-même.": "I build it, or I guide you while you build it yourself.", "Les tests": "Testing", "De vraies personnes l'essaient avant le lancement.": "Real people try it before launch.", "Les Stores": "The Stores", "Elle est en ligne sur Google Play et sur l'App Store.": "It is live on Google Play and the App Store.", "Quatre façons de travailler ensemble": "Four ways to work together", "Tu choisis selon ce que tu veux : apprendre à le faire, me le confier, franchir la dernière étape, ou protéger ce que tu as déjà.": "You choose based on what you want: learn to do it, hand it to me, get past the last step, or protect what you already have.", "Tu construis, je te guide": "You build, I guide you", "Pour ceux qui veulent bâtir leur première application avec l'IA sans rester bloqués.": "For people who want to build their first app with AI without getting stuck.", "Séances à l'écran, une étape à la fois": "On-screen sessions, one step at a time", "Aide quand un bogue t'arrête": "Help when a bug stops you", "Aucun prérequis technique": "No technical background needed", "Je la construis pour toi": "I build it for you", "Pour un commerce ou un travailleur autonome qui a besoin d'un outil précis.": "For a shop or a self-employed worker who needs a specific tool.", "Calculateur de prix ou de soumission": "Price or quote calculator", "Formulaire intelligent, mini-application": "Smart form, mini app", "Assistant avec IA intégrée, en français": "Built-in AI assistant, in French or English", "Utilisable au bureau sur l'ordinateur, et partout sur le téléphone": "Works at the office on a computer, and anywhere on a phone", "Je la mets sur les Stores": "I put it on the Stores", "Pour une application web déjà faite qui doit devenir une vraie application sur téléphone.": "For a web app that already exists and needs to become a real phone app.", "Google Play, pour Android": "Google Play, for Android", "App Store, pour iPhone": "App Store, for iPhone", "Fiche du Store, déclarations et suivi jusqu'à l'approbation": "Store listing, declarations and follow-up until approval", "Je protège ton application et tes comptes": "I protect your app and your accounts", "Pour une application déjà en ligne dont les clés ou les comptes sont mal protégés.": "For an app already online whose keys or accounts are poorly protected.", "Clés d'accès sorties du code et mises à l'abri": "Access keys taken out of the code and stored safely", "Vérification de tes comptes : courriel, mot de passe, double vérification": "Review of your accounts: email, password, two-step verification", "Un guide et un inventaire de tes comptes, à garder": "A guide and an inventory of your accounts, yours to keep", "Publier sur un Store, c'est là que la plupart abandonnent": "Publishing on a Store is where most people give up", "Je suis passé par chacune de ces étapes avec ma propre application, SmartGrocer, sur Google Play comme sur l'App Store.": "I went through each of these steps with my own app, SmartGrocer, on Google Play and on the App Store.", "Empaqueter l'application": "Package the app", "Transformer le site en fichier installable, avec sa clé de signature.": "Turn the site into an installable file, with its signing key.", "Lier le domaine": "Link the domain", "Déposer le fichier <code>assetlinks.json</code> pour faire disparaître la barre d'adresse.": "Upload the <code>assetlinks.json</code> file to make the address bar disappear.", "Remplir la fiche": "Fill in the listing", "Politique de confidentialité, sécurité des données, classification du contenu.": "Privacy policy, data safety, content rating.", "Passer le test fermé": "Pass the closed test", "Réunir au moins 12 testeurs pendant 14 jours, comme Google l'exige des nouveaux comptes.": "Gather at least 12 testers for 14 days, as Google requires from new accounts.", "Demander la production": "Apply for production", "Soumettre l'application pour examen. L'approbation finale appartient au Store.": "Submit the app for review. The final approval belongs to the Store.", "Mettre en ligne": "Go live", "L'application devient visible et téléchargeable.": "The app becomes visible and downloadable.", "Ce que j'ai construit": "What I have built", "Des applications que j'ai imaginées et bâties moi-même, de la première ligne jusqu'à la mise en ligne.": "Apps I imagined and built myself, from the first line to going live.", "Sur Google Play et sur l'App Store": "On Google Play and the App Store", "Une application bilingue pour économiser à l'épicerie : recettes à partir des spéciaux, score santé, alertes de péremption et suivi des prix.": "A bilingual app to save on groceries: recipes from the weekly deals, health score, expiry alerts and price tracking.", "Essayer SmartGrocer": "Try SmartGrocer", "Gratuit, sans abonnement": "Free, no subscription", "Un calculateur d'augmentation de loyer pour les locataires du Québec. Un outil à mission sociale, construit en une fraction du temps de mon premier projet.": "A rent increase calculator for tenants in Quebec. A tool with a social mission, built in a fraction of the time of my first project.", "Outil maison": "Homemade tool", "Un petit outil web qui retire le fond vert. Un bon exemple de ce qu'un outil simple et précis peut régler en quelques clics.": "A small web tool that removes green screens. A good example of what a simple, focused tool can solve in a few clicks.", "Projet en cours": "Work in progress", "Une formation guidée par l'IA, en cinq étapes, pour créer sa toute première application sans connaissances techniques.": "An AI-guided course, in five steps, to create your very first app with no technical background.", "Un tuteur d'anglais pour les francophones qui en ont besoin au travail : mises en situation réelles et entrevue simulée.": "An English tutor for French speakers who need it at work: real-life situations and a mock interview.", "Un outil pour les travailleurs autonomes du Québec : revenus, dépenses déductibles et export pour le comptable.": "A tool for self-employed workers in Quebec: income, deductible expenses and an export for the accountant.", "Je ne viens pas du monde de l'informatique": "I don't come from the tech world", "Je m'appelle Timmy Villeneuve. Je suis journalier en usine à Joliette, et j'ai appris à créer des applications en les construisant, une étape à la fois, avec l'aide de l'intelligence artificielle.": "My name is Timmy Villeneuve. I am a factory worker in Joliette, and I learned to create apps by building them, one step at a time, with the help of artificial intelligence.", "Ma première application m'a fait traverser tous les obstacles : les bogues, les fichiers manquants, les règles de Google. La deuxième s'est construite beaucoup plus vite, parce que ces obstacles étaient devenus de l'expérience.": "My first app made me go through every obstacle: bugs, missing files, Google's rules. The second one came together much faster, because those obstacles had become experience.", "Je t'explique les choses comme j'aurais aimé qu'on me les explique, sans jargon.": "I explain things the way I wish someone had explained them to me, with no jargon.", "La communauté : teste, et fais tester": "The community: test, and get tested", "Trouver des testeurs, c'est l'étape où bien des créateurs restent bloqués. Je le sais, j'y ai passé des semaines. Ici, des gens d'ici essaient les applications des autres et s'échangent des commentaires honnêtes, en français.": "Finding testers is the step where many creators get stuck. I know, I spent weeks on it. Here, local people try each other's apps and trade honest feedback.", "<strong>Tu proposes ton application.</strong> Un lien vers le Play Store ou l'App Store. Un test fermé compte aussi.": "<strong>You submit your app.</strong> A link to the Play Store or the App Store. A closed test counts too.", "<strong>Je la vérifie et je la publie.</strong> Je l'essaie moi-même, puis je la classe dans sa catégorie.": "<strong>I check it and publish it.</strong> I try it myself, then I file it under its category.", "<strong>La communauté l'essaie.</strong> Tu reçois de vrais commentaires, et tu en donnes aux autres.": "<strong>The community tries it.</strong> You get real feedback, and you give some to others.", "Toutes": "All", "Alimentation": "Food", "Économiser à l'épicerie : recettes selon les spéciaux, liste avec les prix et zéro gaspillage.": "Save on groceries: recipes based on the deals, a list with prices and zero waste.", "En test sur Google Play": "In testing on Google Play", "Devenir testeur": "Become a tester", "Pour l'instant, il y a la mienne. La tienne peut être la prochaine.": "For now, there is mine. Yours could be next.", "Les règles de la maison": "House rules", "Seulement des applications présentes sur le Play Store ou l'App Store, en test ou publiées. Aucun fichier à télécharger, aucun site hors des Stores.": "Only apps that are on the Play Store or the App Store, in testing or published. No files to download, no sites outside the Stores.", "J'essaie chaque application avant de la publier, avec l'accord écrit de son créateur.": "I try every app before publishing it, with the written consent of its creator.", "On échange des commentaires, jamais des étoiles ou des avis sur les Stores.": "We trade feedback, never stars or reviews on the Stores.", "Un doute sur une application ? Écris-moi, je la retire d'abord et je vérifie ensuite.": "A doubt about an app? Write to me: I remove it first and check afterwards.", "Les applications sont partagées par leurs créateurs. Lance ton app ne les garantit pas.": "Apps are shared by their creators. Lance ton app does not guarantee them.", "Tu as une application à faire tester ?": "Do you have an app to get tested?", "Propose-la, c'est gratuit. Le groupe Facebook de la communauté ouvrira au lancement du site.": "Submit it, it's free. The community's Facebook group will open when the site launches.", "Proposer mon application": "Submit my app", "Décris-moi ton projet": "Tell me about your project", "Chaque projet est différent, alors je prépare un prix sur mesure. La soumission est gratuite et ne t'engage à rien.": "Every project is different, so I prepare a custom price. The quote is free and commits you to nothing.", "Ton nom": "Your name", "Ton courriel": "Your email", "Ce qu'il te faut": "What you need", "Accompagnement : je veux construire mon application": "Coaching: I want to build my app", "Création : je veux qu'on la construise pour moi": "Creation: I want it built for me", "Publication : mon application est prête, il faut la mettre sur les Stores": "Publishing: my app is ready and needs to go on the Stores", "Sécurité : je veux protéger mon application et mes comptes": "Security: I want to protect my app and my accounts", "Communauté : je veux faire tester mon application": "Community: I want to get my app tested", "Je ne suis pas certain": "I'm not sure", "Pour quand": "When do you need it", "Pas pressé": "No rush", "D'ici un mois": "Within a month", "D'ici deux semaines": "Within two weeks", "Ton projet en quelques phrases": "Your project in a few sentences", "Qui va s'en servir, et quel problème ça doit régler ?": "Who will use it, and what problem should it solve?", "Envoyer ma demande": "Send my request", "Il manque ton nom, un courriel valide ou la description du projet.": "Your name, a valid email or the project description is missing.", "<strong>Demande envoyée.</strong> Merci! Je te réponds par courriel. Voici ce que j'ai reçu :": "<strong>Request sent.</strong> Thank you! I'll reply by email. Here is what I received:", "L'envoi n'a pas fonctionné. Réessaie dans un instant, ou écris-moi à bonjour@lancetonapp.com.": "Sending failed. Please try again in a moment, or write to me at bonjour@lancetonapp.com.", "Ce qui se passe ensuite": "What happens next", "Je lis ta demande et je te pose quelques questions pour bien comprendre.": "I read your request and ask you a few questions to understand it well.", "Je t'envoie une soumission écrite, avec un prix fixe et un délai.": "I send you a written quote, with a fixed price and a timeline.", "Si elle te convient, tu verses un acompte et je commence.": "If it suits you, you pay a deposit and I start.", "Tu paies le solde à la livraison.": "You pay the balance on delivery.", "Vie privée et conditions": "Privacy and terms", "Écrit en mots simples, pour que tu saches à quoi t'attendre avant de m'écrire.": "Written in plain words, so you know what to expect before you write to me.", "Tes données ne sont pas à vendre": "Your data is not for sale", "Je ne conçois aucune application faite pour revendre les données personnelles de ses utilisateurs. Si un projet prenait cette direction, j'arrêterais le travail et je rembourserais les sommes déjà payées.": "I do not build any app designed to resell its users' personal data. If a project went in that direction, I would stop the work and refund the amounts already paid.", "Ce que ce site recueille": "What this site collects", "Seulement ce que tu écris dans le formulaire de demande : ton nom, ton courriel et la description de ton projet. Je m'en sers pour te répondre et préparer ta soumission, rien d'autre. Aucune publicité, aucun outil de pistage, rien n'est vendu ni partagé.": "Only what you write in the request form: your name, your email and the description of your project. I use it to answer you and prepare your quote, nothing else. No ads, no tracking tools, nothing is sold or shared.", "Tes droits": "Your rights", "Tu peux me demander en tout temps de voir, corriger ou effacer les renseignements que j'ai sur toi. Le responsable de leur protection est Timmy Villeneuve, que tu joins par le formulaire de cette page.": "You can ask me at any time to see, correct or erase the information I have about you. The person responsible for protecting it is Timmy Villeneuve, whom you can reach through the form on this page.", "Comment je travaille": "How I work", "Chaque projet commence par une soumission écrite, avec un prix fixe pour le travail décrit. Rien ne commence sans ton accord, et toute demande supplémentaire fait l'objet d'une nouvelle soumission.": "Every project starts with a written quote, with a fixed price for the work described. Nothing starts without your agreement, and any extra request gets a new quote.", "© 2026 Timmy Villeneuve, Joliette (Québec). Tous droits réservés.": "© 2026 Timmy Villeneuve, Joliette (Quebec). All rights reserved."}, ATTR={"Lance ton app, de ton idée jusqu'au Store": "Lance ton app, from your idea to the Store", "Exemple d'application sur un ordinateur et sur un téléphone": "Example of an app on a computer and on a phone", "Filtrer par catégorie": "Filter by category", "L'écran d'accueil de SmartGrocer": "SmartGrocer's home screen", "Capture agrandie": "Enlarged screenshot", "Fermer": "Close", "Capture précédente": "Previous screenshot", "Capture suivante": "Next screenshot", "écran d'accueil": "home screen", "aperçu avec un nouvel arrière-plan": "preview with a new background", "fond vert retiré": "green screen removed", "écran d'accueil avec le tuteur": "home screen with the tutor", "liste des scénarios": "list of scenarios", "choix de l'accent anglais": "choice of English accent", "écran d'accueil du calculateur": "calculator home screen", "ta situation : loyer, hausse proposée et salaire": "your situation: rent, proposed increase and salary", "ton bail et la fenêtre légale d'avis": "your lease and the legal notice window", "planificateur de repas selon les spéciaux": "meal planner based on the deals", "tableau de bord avec des chiffres d'exemple": "dashboard with sample figures", "ajout d'une dépense de véhicule": "adding a vehicle expense"};
+const EN={"De ton idée jusqu'au <span class=\"acc\">Store.</span>": "From your idea to the <span class=\"acc\">Store.</span>", "Applications web": "Web apps", "Sans jargon": "No jargon", "// Réalisations": "// My work", "Des idées très différentes. Un même savoir-faire.": "Very different ideas. The same know-how.", "Fais défiler ↓": "Scroll ↓", "Même savoir-faire, idées différentes": "Different ideas, same know-how", "Tu as l'idée. Je m'occupe du reste.": "You bring the idea. I handle the rest.", "Toujours en construction…": "Always building…", "<i></i>Création / Accompagnement / Publication": "<i></i>Creation / Guidance / Publishing", "Des applications déjà en ligne, de l'idée jusqu'au Store.": "Apps already live, from idea to Store.", "Apprendre à bâtir, me confier ton projet, ou publier sur les stores.": "Learn to build, hand me your project, or publish on the stores.", "Un outil sur mesure, essaie-le": "A custom tool, try it", "Voici le genre d'outil que je construis pour un commerce. Change le nom et bouge le curseur.": "Here is the kind of tool I build for a business. Change the name and move the slider.", "Blogue": "Blog", "J'ai fait toutes les erreurs pour que tu n'aies pas à les faire.": "I made all the mistakes so you don't have to.", "Un accompagnement d'une personne à une autre, à prix honnête.": "One-on-one guidance, at an honest price.", "Services": "Services", "Réalisations": "My work", "Mon histoire": "My story", "Communauté": "Community", "Demander une soumission": "Request a quote", "De ton idée jusqu'au Store.": "From your idea to the Store.", "J'aide les gens et les petites entreprises du Québec à créer leur application et à la publier, même sans connaissances techniques.": "I help people and small businesses in Quebec create their app and publish it, even with no technical background.", "Demander une soumission gratuite": "Request a free quote", "Voir mes réalisations": "See my work", "En français, sans jargon": "In plain words, no jargon", "Une seule application, sur téléphone et sur ordinateur": "One app, on phone and on computer", "Publication sur Google Play et sur l'App Store": "Publishing on Google Play and the App Store", "Écris le nom de ton entreprise, pour voir": "Type your business name to see", "Soumission": "Quote", "Demandes": "Requests", "Clients": "Clients", "Soumission pour une tonte": "Quote for a lawn mowing", "Superficie du terrain": "Lot size", "Prix estimé": "Estimated price", "Superficie": "Size", "Demandes reçues cette semaine": "Requests received this week", "Tonte et bordures<b>Nouvelle</b>": "Mowing and edging<b>New</b>", "Taille de haie<b>Soumission envoyée</b>": "Hedge trimming<b>Quote sent</b>", "Ouverture de terrain<b>Acceptée</b>": "Spring cleanup<b>Accepted</b>", "Envoyer": "Send", "Bouge le curseur du téléphone : l'ordinateur suit. C'est un exemple fictif du genre d'outil que je construis.": "Move the slider on the phone: the computer follows. This is a made-up example of the kind of tool I build.", "Comment ça se passe": "How it works", "Quatre étapes, dans cet ordre. Tu sais toujours où on en est.": "Four steps, in this order. You always know where we are.", "Ton idée": "Your idea", "On clarifie ce que l'application doit faire, et pour qui.": "We make clear what the app must do, and for whom.", "La construction": "The build", "Je la bâtis, ou je te guide pour la bâtir toi-même.": "I build it, or I guide you while you build it yourself.", "Les tests": "Testing", "De vraies personnes l'essaient avant le lancement.": "Real people try it before launch.", "Les Stores": "The Stores", "Elle est en ligne sur Google Play et sur l'App Store.": "It is live on Google Play and the App Store.", "Quatre façons de travailler ensemble": "Four ways to work together", "Tu choisis selon ce que tu veux : apprendre à le faire, me le confier, franchir la dernière étape, ou protéger ce que tu as déjà.": "You choose based on what you want: learn to do it, hand it to me, get past the last step, or protect what you already have.", "Tu construis, je te guide": "You build, I guide you", "Pour ceux qui veulent bâtir leur première application avec l'IA sans rester bloqués.": "For people who want to build their first app with AI without getting stuck.", "Séances à l'écran, une étape à la fois": "On-screen sessions, one step at a time", "Aide quand un bogue t'arrête": "Help when a bug stops you", "Aucun prérequis technique": "No technical background needed", "Je la construis pour toi": "I build it for you", "Pour un commerce ou un travailleur autonome qui a besoin d'un outil précis.": "For a shop or a self-employed worker who needs a specific tool.", "Calculateur de prix ou de soumission": "Price or quote calculator", "Formulaire intelligent, mini-application": "Smart form, mini app", "Assistant avec IA intégrée, en français": "Built-in AI assistant, in French or English", "Utilisable au bureau sur l'ordinateur, et partout sur le téléphone": "Works at the office on a computer, and anywhere on a phone", "Je la mets sur les Stores": "I put it on the Stores", "Pour une application web déjà faite qui doit devenir une vraie application sur téléphone.": "For a web app that already exists and needs to become a real phone app.", "Google Play, pour Android": "Google Play, for Android", "App Store, pour iPhone": "App Store, for iPhone", "Fiche du Store, déclarations et suivi jusqu'à l'approbation": "Store listing, declarations and follow-up until approval", "Je protège ton application et tes comptes": "I protect your app and your accounts", "Pour une application déjà en ligne dont les clés ou les comptes sont mal protégés.": "For an app already online whose keys or accounts are poorly protected.", "Clés d'accès sorties du code et mises à l'abri": "Access keys taken out of the code and stored safely", "Vérification de tes comptes : courriel, mot de passe, double vérification": "Review of your accounts: email, password, two-step verification", "Un guide et un inventaire de tes comptes, à garder": "A guide and an inventory of your accounts, yours to keep", "Publier sur un Store, c'est là que la plupart abandonnent": "Publishing on a Store is where most people give up", "Je suis passé par chacune de ces étapes avec ma propre application, SmartGrocer, sur Google Play comme sur l'App Store.": "I went through each of these steps with my own app, SmartGrocer, on Google Play and on the App Store.", "Empaqueter l'application": "Package the app", "Transformer le site en fichier installable, avec sa clé de signature.": "Turn the site into an installable file, with its signing key.", "Lier le domaine": "Link the domain", "Déposer le fichier <code>assetlinks.json</code> pour faire disparaître la barre d'adresse.": "Upload the <code>assetlinks.json</code> file to make the address bar disappear.", "Remplir la fiche": "Fill in the listing", "Politique de confidentialité, sécurité des données, classification du contenu.": "Privacy policy, data safety, content rating.", "Passer le test fermé": "Pass the closed test", "Réunir au moins 12 testeurs pendant 14 jours, comme Google l'exige des nouveaux comptes.": "Gather at least 12 testers for 14 days, as Google requires from new accounts.", "Demander la production": "Apply for production", "Soumettre l'application pour examen. L'approbation finale appartient au Store.": "Submit the app for review. The final approval belongs to the Store.", "Mettre en ligne": "Go live", "L'application devient visible et téléchargeable.": "The app becomes visible and downloadable.", "Ce que j'ai construit": "What I have built", "Des applications que j'ai imaginées et bâties moi-même, de la première ligne jusqu'à la mise en ligne.": "Apps I imagined and built myself, from the first line to going live.", "Sur Google Play et sur l'App Store": "On Google Play and the App Store", "Une application bilingue pour économiser à l'épicerie : recettes à partir des spéciaux, score santé, alertes de péremption et suivi des prix.": "A bilingual app to save on groceries: recipes from the weekly deals, health score, expiry alerts and price tracking.", "Essayer SmartGrocer": "Try SmartGrocer", "Gratuit, sans abonnement": "Free, no subscription", "Un calculateur d'augmentation de loyer pour les locataires du Québec. Un outil à mission sociale, construit en une fraction du temps de mon premier projet.": "A rent increase calculator for tenants in Quebec. A tool with a social mission, built in a fraction of the time of my first project.", "Outil maison": "Homemade tool", "Un petit outil web qui retire le fond vert. Un bon exemple de ce qu'un outil simple et précis peut régler en quelques clics.": "A small web tool that removes green screens. A good example of what a simple, focused tool can solve in a few clicks.", "Projet en cours": "Work in progress", "Une formation guidée par l'IA, en cinq étapes, pour créer sa toute première application sans connaissances techniques.": "An AI-guided course, in five steps, to create your very first app with no technical background.", "Un tuteur d'anglais pour les francophones qui en ont besoin au travail : mises en situation réelles et entrevue simulée.": "An English tutor for French speakers who need it at work: real-life situations and a mock interview.", "Un outil pour les travailleurs autonomes du Québec : revenus, dépenses déductibles et export pour le comptable.": "A tool for self-employed workers in Quebec: income, deductible expenses and an export for the accountant.", "Je ne viens pas du monde de l'informatique": "I don't come from the tech world", "Je m'appelle Timmy Villeneuve. Je suis journalier en usine à Joliette, et j'ai appris à créer des applications en les construisant, une étape à la fois, avec l'aide de l'intelligence artificielle.": "My name is Timmy Villeneuve. I am a factory worker in Joliette, and I learned to create apps by building them, one step at a time, with the help of artificial intelligence.", "Ma première application m'a fait traverser tous les obstacles : les bogues, les fichiers manquants, les règles de Google. La deuxième s'est construite beaucoup plus vite, parce que ces obstacles étaient devenus de l'expérience.": "My first app made me go through every obstacle: bugs, missing files, Google's rules. The second one came together much faster, because those obstacles had become experience.", "Je t'explique les choses comme j'aurais aimé qu'on me les explique, sans jargon.": "I explain things the way I wish someone had explained them to me, with no jargon.", "La communauté : teste, et fais tester": "The community: test, and get tested", "Trouver des testeurs, c'est l'étape où bien des créateurs restent bloqués. Je le sais, j'y ai passé des semaines. Ici, des gens d'ici essaient les applications des autres et s'échangent des commentaires honnêtes, en français.": "Finding testers is the step where many creators get stuck. I know, I spent weeks on it. Here, local people try each other's apps and trade honest feedback.", "<strong>Tu proposes ton application.</strong> Un lien vers le Play Store ou l'App Store. Un test fermé compte aussi.": "<strong>You submit your app.</strong> A link to the Play Store or the App Store. A closed test counts too.", "<strong>Je la vérifie et je la publie.</strong> Je l'essaie moi-même, puis je la classe dans sa catégorie.": "<strong>I check it and publish it.</strong> I try it myself, then I file it under its category.", "<strong>La communauté l'essaie.</strong> Tu reçois de vrais commentaires, et tu en donnes aux autres.": "<strong>The community tries it.</strong> You get real feedback, and you give some to others.", "Toutes": "All", "Alimentation": "Food", "Économiser à l'épicerie : recettes selon les spéciaux, liste avec les prix et zéro gaspillage.": "Save on groceries: recipes based on the deals, a list with prices and zero waste.", "En test sur Google Play": "In testing on Google Play", "Devenir testeur": "Become a tester", "Pour l'instant, il y a la mienne. La tienne peut être la prochaine.": "For now, there is mine. Yours could be next.", "Les règles de la maison": "House rules", "Seulement des applications présentes sur le Play Store ou l'App Store, en test ou publiées. Aucun fichier à télécharger, aucun site hors des Stores.": "Only apps that are on the Play Store or the App Store, in testing or published. No files to download, no sites outside the Stores.", "J'essaie chaque application avant de la publier, avec l'accord écrit de son créateur.": "I try every app before publishing it, with the written consent of its creator.", "On échange des commentaires, jamais des étoiles ou des avis sur les Stores.": "We trade feedback, never stars or reviews on the Stores.", "Un doute sur une application ? Écris-moi, je la retire d'abord et je vérifie ensuite.": "A doubt about an app? Write to me: I remove it first and check afterwards.", "Les applications sont partagées par leurs créateurs. Lance ton app ne les garantit pas.": "Apps are shared by their creators. Lance ton app does not guarantee them.", "Tu as une application à faire tester ?": "Do you have an app to get tested?", "Propose-la, c'est gratuit. Le groupe Facebook de la communauté ouvrira au lancement du site.": "Submit it, it's free. The community's Facebook group will open when the site launches.", "Proposer mon application": "Submit my app", "Décris-moi ton projet": "Tell me about your project", "Chaque projet est différent, alors je prépare un prix sur mesure. La soumission est gratuite et ne t'engage à rien.": "Every project is different, so I prepare a custom price. The quote is free and commits you to nothing.", "Ton nom": "Your name", "Ton courriel": "Your email", "Ce qu'il te faut": "What you need", "Accompagnement : je veux construire mon application": "Coaching: I want to build my app", "Création : je veux qu'on la construise pour moi": "Creation: I want it built for me", "Publication : mon application est prête, il faut la mettre sur les Stores": "Publishing: my app is ready and needs to go on the Stores", "Sécurité : je veux protéger mon application et mes comptes": "Security: I want to protect my app and my accounts", "Communauté : je veux faire tester mon application": "Community: I want to get my app tested", "Je ne suis pas certain": "I'm not sure", "Pour quand": "When do you need it", "Pas pressé": "No rush", "D'ici un mois": "Within a month", "D'ici deux semaines": "Within two weeks", "Ton projet en quelques phrases": "Your project in a few sentences", "Qui va s'en servir, et quel problème ça doit régler ?": "Who will use it, and what problem should it solve?", "Envoyer ma demande": "Send my request", "Il manque ton nom, un courriel valide ou la description du projet.": "Your name, a valid email or the project description is missing.", "<strong>Demande envoyée.</strong> Merci! Je te réponds par courriel. Voici ce que j'ai reçu :": "<strong>Request sent.</strong> Thank you! I'll reply by email. Here is what I received:", "L'envoi n'a pas fonctionné. Réessaie dans un instant, ou écris-moi à bonjour@lancetonapp.com.": "Sending failed. Please try again in a moment, or write to me at bonjour@lancetonapp.com.", "Ce qui se passe ensuite": "What happens next", "Je lis ta demande et je te pose quelques questions pour bien comprendre.": "I read your request and ask you a few questions to understand it well.", "Je t'envoie une soumission écrite, avec un prix fixe et un délai.": "I send you a written quote, with a fixed price and a timeline.", "Si elle te convient, tu verses un acompte et je commence.": "If it suits you, you pay a deposit and I start.", "Tu paies le solde à la livraison.": "You pay the balance on delivery.", "Vie privée et conditions": "Privacy and terms", "Écrit en mots simples, pour que tu saches à quoi t'attendre avant de m'écrire.": "Written in plain words, so you know what to expect before you write to me.", "Tes données ne sont pas à vendre": "Your data is not for sale", "Je ne conçois aucune application faite pour revendre les données personnelles de ses utilisateurs. Si un projet prenait cette direction, j'arrêterais le travail et je rembourserais les sommes déjà payées.": "I do not build any app designed to resell its users' personal data. If a project went in that direction, I would stop the work and refund the amounts already paid.", "Ce que ce site recueille": "What this site collects", "Seulement ce que tu écris dans le formulaire de demande : ton nom, ton courriel et la description de ton projet. Je m'en sers pour te répondre et préparer ta soumission, rien d'autre. Aucune publicité, aucun outil de pistage, rien n'est vendu ni partagé.": "Only what you write in the request form: your name, your email and the description of your project. I use it to answer you and prepare your quote, nothing else. No ads, no tracking tools, nothing is sold or shared.", "Tes droits": "Your rights", "Tu peux me demander en tout temps de voir, corriger ou effacer les renseignements que j'ai sur toi. Le responsable de leur protection est Timmy Villeneuve, que tu joins par le formulaire de cette page.": "You can ask me at any time to see, correct or erase the information I have about you. The person responsible for protecting it is Timmy Villeneuve, whom you can reach through the form on this page.", "Comment je travaille": "How I work", "Chaque projet commence par une soumission écrite, avec un prix fixe pour le travail décrit. Rien ne commence sans ton accord, et toute demande supplémentaire fait l'objet d'une nouvelle soumission.": "Every project starts with a written quote, with a fixed price for the work described. Nothing starts without your agreement, and any extra request gets a new quote.", "© 2026 Timmy Villeneuve, Joliette (Québec). Tous droits réservés.": "© 2026 Timmy Villeneuve, Joliette (Quebec). All rights reserved."}, ATTR={"Lance ton app, de ton idée jusqu'au Store": "Lance ton app, from your idea to the Store", "Exemple d'application sur un ordinateur et sur un téléphone": "Example of an app on a computer and on a phone", "Filtrer par catégorie": "Filter by category", "L'écran d'accueil de SmartGrocer": "SmartGrocer's home screen", "Capture agrandie": "Enlarged screenshot", "Fermer": "Close", "Capture précédente": "Previous screenshot", "Capture suivante": "Next screenshot", "écran d'accueil": "home screen", "aperçu avec un nouvel arrière-plan": "preview with a new background", "fond vert retiré": "green screen removed", "écran d'accueil avec le tuteur": "home screen with the tutor", "liste des scénarios": "list of scenarios", "choix de l'accent anglais": "choice of English accent", "écran d'accueil du calculateur": "calculator home screen", "ta situation : loyer, hausse proposée et salaire": "your situation: rent, proposed increase and salary", "ton bail et la fenêtre légale d'avis": "your lease and the legal notice window", "planificateur de repas selon les spéciaux": "meal planner based on the deals", "tableau de bord avec des chiffres d'exemple": "dashboard with sample figures", "ajout d'une dépense de véhicule": "adding a vehicle expense"};
 const norm=t=>t.replace(/\s+/g,' ').trim();
 const memo=[];           // ce qu'on a changé, pour pouvoir revenir au français
 function attrEN(v){ if(ATTR[v]) return ATTR[v];
@@ -826,13 +902,14 @@ loupe.addEventListener('touchend',e=>{ if(lx===null) return; const d=e.changedTo
   // ---- apparitions
   if(!reduit && 'IntersectionObserver' in window){
     const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('vu'); io.unobserve(e.target); } }),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
-    document.querySelectorAll('.bloc h2,.bloc .lede,.parcours li,.service,.etapes li,.projet,.com-carte,.histoire > div,.demande > *,.x-puces,.bandeau').forEach(e=>{ if(e.closest('.x-hero')) return; e.classList.add('rv'); io.observe(e); });
+    document.querySelectorAll('.bloc h2,.bloc .lede,.parcours li,.service,.etapes li,.projet,.com-carte,.histoire > div,.demande > *,.x-puces,.bandeau,.x-demo-cadre,.x-pan').forEach(e=>{ if(e.closest('.x-hero') && !e.classList.contains('x-pan')) return; e.classList.add('rv'); io.observe(e); });
   }
   // ---- parallaxe des formes + photos qui s'agrandissent + téléphone qui tourne
-  const formes=[...document.querySelectorAll('.x-forme')], bandeaux=[...document.querySelectorAll('.bandeau img')];
+  const formes=[...document.querySelectorAll('.x-note[data-depth]')], bandeaux=[...document.querySelectorAll('.bandeau img')];
   const scene=document.getElementById('vitrine'), tel=document.getElementById('x-phone');
   const imA=document.getElementById('x-img-a'), imB=document.getElementById('x-img-b');
   const nom=document.getElementById('x-nom'), desc=document.getElementById('x-desc'), pts=document.getElementById('x-pts');
+  if(tel){ for(let k=-6;k<=6;k+=1){ const d=document.createElement('div'); d.className='x-epais'; d.style.transform='translateZ('+k+'px)'; tel.insertBefore(d,tel.firstChild); } }
   let mx=0,my=0, courant=-1;
   APPS.forEach(()=>pts.appendChild(document.createElement('i')));
   addEventListener('mousemove',e=>{ mx=(e.clientX/innerWidth-.5); my=(e.clientY/innerHeight-.5); if(!tick) tick=requestAnimationFrame(rendre); },{passive:true});
