@@ -1,0 +1,9 @@
+:root:root:root,:root[data-theme="dark"]:root{
+  color-scheme:dark;
+  --paper:#09090b;--tint:#101013;--ink:#f4f4f5;--soft:#a3a3ad;--line:#2a2a30;
+  --canard:#ff6b76;--canard-ink:#ffffff;--coral:#d62839;--coral-ink:#ffffff;--beurre:#3a1519;
+  --t-aqua:#15151a;--t-peche:#1a1215;--t-beurre:#141417;--t-lilas:#17141a;
+  --deep:#050506;--deep-ink:#ffffff;--deep-soft:#a3a3ad;--logo-a:#ff4d5a;--logo-b:#f4f4f5;--ok:#4ade80;
+  --acc:#e63946;--acc2:#ff6b76;
+}
+body{background:var(--paper)}header{background:rgba(9,9,11,.9)!important;border-color:var(--line)!important}.btn{background:var(--coral);color:#fff}
