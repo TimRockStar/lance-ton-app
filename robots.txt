@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /essai.html
+
+Sitemap: https://lancetonapp.com/sitemap.xml
