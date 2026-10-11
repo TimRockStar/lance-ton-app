@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr-CA" data-l="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comment j&#x27;ai décidé quoi mettre dans SmartGrocer | Lance ton app</title>
+<meta name="description" content="Une bonne app se construit en choisissant ce qu&#x27;on garde. Voici comment j&#x27;ai fait mes choix, et ce que j&#x27;en ai appris.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;700;800&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="blogue.css">
+<script>document.documentElement.dataset.l=(function(){try{var l=localStorage.getItem('lta_langue');if(l)return l}catch(e){}return /^en/i.test(navigator.language||'')?'en':'fr'})();</script>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="mark" href="index.html"><svg viewBox="0 0 40 56" width="26" height="36" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="35" height="51" rx="8" stroke="var(--logo-b)" stroke-width="4"/><path d="M14 9h12" stroke="var(--logo-b)" stroke-width="3"/><path class="trace" pathLength="1" d="M9 41l8-15 6 9 9-17" stroke="var(--logo-a)" stroke-width="4"/><path class="pointe" d="M25 18h7v7" stroke="var(--logo-a)" stroke-width="4"/></svg>Lance ton app</a>
+    <nav>
+      <a href="index.html#services"><span lang="fr">Services</span><span lang="en">Services</span></a><a href="index.html#realisations"><span lang="fr">Réalisations</span><span lang="en">My work</span></a><a href="index.html#histoire"><span lang="fr">Mon histoire</span><span lang="en">My story</span></a><a href="index.html#communaute"><span lang="fr">Communauté</span><span lang="en">Community</span></a><a href="blogue.html"><span lang="fr">Blogue</span><span lang="en">Blog</span></a>
+      <a class="btn" href="index.html#soumission"><span lang="fr">Demander une soumission</span><span lang="en">Request a quote</span></a>
+      <button type="button" class="langue" id="langue" aria-label="Lire ce site en anglais / Read this site in English">EN/FR</button>
+    </nav>
+  </div>
+</header>
+<main>
+<article class="article" data-t-fr="Comment j&#x27;ai décidé quoi mettre dans SmartGrocer" data-t-en="How I decided what goes into SmartGrocer">
+  <a class="retour" href="blogue.html"><span lang="fr">← Retour au blogue</span><span lang="en">← Back to the blog</span></a>
+  <h1><span lang="fr">Comment j&#x27;ai décidé quoi mettre dans SmartGrocer</span><span lang="en">How I decided what goes into SmartGrocer</span></h1>
+  <p class="meta"><span lang="fr">Par Timmy Villeneuve · 11 octobre 2026 · 3 min</span><span lang="en">By Timmy Villeneuve · October 11, 2026 · 3 min</span></p>
+  <div lang="fr"><p>Une bonne app ne se construit pas en ajoutant tout ce qui nous passe par la tête: elle se construit en choisissant ce qu'on garde. Voici comment j'ai fait ces choix pour SmartGrocer, mon application d'épicerie bilingue, et ce que j'ai appris en cours de route.</p>
+<p>SmartGrocer est née d'une frustration personnelle. Chaque semaine, je planifiais mes repas à partir des circulaires en ligne, et ça me prenait un temps fou. Je voulais un outil qui fasse ce travail à ma place.</p>
+<h2>Partir du problème, pas des fonctions</h2>
+<p>Ma première question n'était pas « quelles fonctions je mets? » mais « quel est mon problème exact? ». La réponse tenait en une phrase: je perds du temps à trouver quoi cuisiner avec les rabais de la semaine.</p>
+<p>Cette phrase a servi de filtre. Chaque idée qui ne répondait pas à ce problème attendait. Cette discipline est difficile quand on adore créer: l'idée suivante paraît toujours meilleure que la précédente. Une liste d'idées en attente m'aide à les noter sans les construire tout de suite.</p>
+<h2>Le cœur de l'app, et ce qui s'est ajouté autour</h2>
+<p>Le noyau est venu directement du problème:</p>
+<ul>
+<li>lire les circulaires de la semaine et comparer les prix;</li>
+<li>proposer des recettes basées sur les spéciaux;</li>
+<li>générer la liste d'épicerie qui va avec.</li>
+</ul>
+<p>Des fonctions plus petites se sont ajoutées parce qu'elles servaient ce même but: un score de santé des produits, des alertes de date de péremption et l'historique des prix.</p>
+<p>J'ai aussi retiré une fonction. La lecture de reçus inventait des produits qui n'existaient pas, alors je l'ai enlevée le temps de la rendre fiable. Elle est revenue une fois corrigée. Une fonction qui donne de mauvaises réponses fait plus de tort qu'une fonction absente.</p>
+<h2>Une idée qui est venue de l'usage: le scan nutrition</h2>
+<p>Le 10 octobre 2026, une idée m'est venue: comme l'app avait déjà un lecteur de code-barres, pourquoi ne pas l'utiliser pour afficher les infos nutritionnelles d'un produit?</p>
+<p>Je n'ai pas eu à tout recommencer. J'ai réutilisé le lecteur existant et branché une base de données ouverte de produits alimentaires. Quand un produit n'est pas reconnu, l'app propose de photographier l'étiquette. Le soir même, j'ai testé les deux cas avec mon téléphone, un produit reconnu et un produit inconnu, et ça a fonctionné.</p>
+<p>Leçon: les meilleures nouvelles fonctions viennent souvent de ce qu'on a déjà construit, pas d'une page blanche.</p>
+<h2>Ce que tu peux retenir pour ton idée d'app</h2>
+<ol>
+<li>Écris ton problème en une phrase, avant toute liste de fonctions.</li>
+<li>Pour chaque idée, demande-toi si elle résout ce problème. Si non, elle attend.</li>
+<li>Commence petit, utilise ton app toi-même chaque semaine et corrige ce qui accroche. La plupart de mes corrections viennent de mon propre usage.</li>
+<li>Retire ou mets en pause une fonction qui n'est pas fiable.</li>
+<li>Réutilise ce que tu as déjà avant de construire du neuf.</li>
+<li>Teste avec de vraies personnes dès que possible.</li>
+</ol>
+<p>Tu as une idée d'app et tu ne sais pas par où commencer? C'est exactement ce que j'accompagne avec Lance ton app: on part de ton problème, on choisit ce qui compte, et on va jusqu'au store.</p></div><div lang="en"><p>A good app is not built by adding everything that comes to mind: it is built by choosing what to keep. Here is how I made those choices for SmartGrocer, my bilingual grocery app, and what I learned along the way.</p>
+<p>SmartGrocer was born from a personal frustration. Every week I planned my meals from online flyers, and it took forever. I wanted a tool that would do that work for me.</p>
+<h2>Start from the problem, not the features</h2>
+<p>My first question was not "which features should I add?" but "what exactly is my problem?" The answer fit in one sentence: I waste time figuring out what to cook with this week's deals.</p>
+<p>That sentence became a filter. Every idea that did not answer that problem had to wait. This discipline is hard when you love building: the next idea always looks better than the last. A waiting-list of ideas helps me write them down without building them right away.</p>
+<h2>The core of the app, and what grew around it</h2>
+<p>The core came straight from the problem:</p>
+<ul>
+<li>read the week's flyers and compare prices;</li>
+<li>suggest recipes based on the specials;</li>
+<li>generate the matching grocery list.</li>
+</ul>
+<p>Smaller features were added because they served that same goal: a product health score, expiry-date alerts and price history.</p>
+<p>I also removed a feature. The receipt reader was making up products that did not exist, so I took it out until I could make it reliable. It came back once fixed. A feature that gives wrong answers does more harm than a missing one.</p>
+<h2>An idea that came from using the app: nutrition scanning</h2>
+<p>On October 10, 2026, an idea came to me: since the app already had a barcode scanner, why not use it to show a product's nutrition facts?</p>
+<p>I did not have to start over. I reused the existing scanner and plugged in an open food-product database. When a product is not recognized, the app offers to photograph the label. That same evening I tested both cases on my phone, a recognized product and an unknown one, and it worked.</p>
+<p>Lesson: the best new features often come from what you have already built, not from a blank page.</p>
+<h2>What you can take away for your app idea</h2>
+<ol>
+<li>Write your problem in one sentence before any feature list.</li>
+<li>For every idea, ask whether it solves that problem. If not, it waits.</li>
+<li>Start small, use your own app every week and fix what bothers you. Most of my fixes come from my own use.</li>
+<li>Remove or pause a feature that is not reliable.</li>
+<li>Reuse what you already have before building something new.</li>
+<li>Test with real people as soon as you can.</li>
+</ol>
+<p>Have an app idea and don't know where to start? That is exactly what I help with through Lance ton app: we start from your problem, choose what matters, and go all the way to the store.</p></div>
+  <div class="appel"><p><strong><span lang="fr">Une idée d'app? Parlons-en.</span><span lang="en">Got an app idea? Let's talk.</span></strong></p><a class="btn" href="index.html#soumission"><span lang="fr">Écris-moi pour une soumission</span><span lang="en">Write to me for a quote</span></a></div>
+</article>
+</main>
+<footer><div class="wrap bar"><strong>Lance ton app</strong><span><span lang="fr">© 2026 Timmy Villeneuve, Joliette (Québec). Tous droits réservés.</span><span lang="en">© 2026 Timmy Villeneuve, Joliette (Quebec). All rights reserved.</span></span><a href="index.html#vie-privee"><span lang="fr">Vie privée et conditions</span><span lang="en">Privacy and terms</span></a></div></footer>
+<script>
+(function(){
+  var b=document.getElementById('langue');
+  function maj(l){document.documentElement.dataset.l=l;document.documentElement.lang=l==='en'?'en-CA':'fr-CA';b.textContent=l==='en'?'FR':'EN';
+    var t=document.querySelector('[data-t-'+l+']');if(t)document.title=t.getAttribute('data-t-'+l)+' | Lance ton app';}
+  b.addEventListener('click',function(){var l=document.documentElement.dataset.l==='en'?'fr':'en';maj(l);try{localStorage.setItem('lta_langue',l)}catch(e){}});
+  maj(document.documentElement.dataset.l);
+})();
+</script>
+</body>
+</html>

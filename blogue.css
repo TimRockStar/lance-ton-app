@@ -1,0 +1,21 @@
+/* blogue */
+.blog-hero{padding-block:56px 28px}
+.blog-hero .lede{max-width:60ch}
+.cartes{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));padding-block:12px 64px}
+.carte{display:flex;flex-direction:column;gap:12px;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px;text-decoration:none;color:var(--ink);transition:transform .15s,border-color .15s}
+.carte:hover{transform:translateY(-3px);border-color:var(--coral)}
+.carte h2{font-size:1.45rem;line-height:1.15}
+.carte p{color:var(--soft);font-size:1rem}
+.meta{color:var(--soft);font-size:.92rem}
+.plus{margin-top:auto;font-weight:700;color:var(--canard)}
+.article{max-width:720px;margin-inline:auto;padding:48px 24px 72px}
+.article h1{font-size:clamp(2rem,4.6vw,3rem);margin-bottom:10px}
+.article h2{font-size:1.6rem;margin:2.1rem 0 .6rem}
+.article p{margin:0 0 1rem}
+.article ul,.article ol{margin:0 0 1rem;padding-left:1.3em}
+.article li{margin-bottom:.4rem}
+.retour{display:inline-block;margin-bottom:24px;font-weight:600;text-decoration:none}
+.retour:hover{text-decoration:underline;text-underline-offset:4px}
+.appel{margin-top:2.4rem;padding:24px;border-radius:16px;background:var(--tint);border:1px solid var(--line)}
+.appel p{margin:0 0 14px}
+html[data-l="fr"] [lang="en"],html[data-l="en"] [lang="fr"]{display:none!important}

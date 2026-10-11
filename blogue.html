@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr-CA" data-l="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blogue | Lance ton app</title>
+<meta name="description" content="Ce que j&#x27;apprends en créant des applications, pour t&#x27;aider à lancer la tienne.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;700;800&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="blogue.css">
+<script>document.documentElement.dataset.l=(function(){try{var l=localStorage.getItem('lta_langue');if(l)return l}catch(e){}return /^en/i.test(navigator.language||'')?'en':'fr'})();</script>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="mark" href="index.html"><svg viewBox="0 0 40 56" width="26" height="36" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="35" height="51" rx="8" stroke="var(--logo-b)" stroke-width="4"/><path d="M14 9h12" stroke="var(--logo-b)" stroke-width="3"/><path class="trace" pathLength="1" d="M9 41l8-15 6 9 9-17" stroke="var(--logo-a)" stroke-width="4"/><path class="pointe" d="M25 18h7v7" stroke="var(--logo-a)" stroke-width="4"/></svg>Lance ton app</a>
+    <nav>
+      <a href="index.html#services"><span lang="fr">Services</span><span lang="en">Services</span></a><a href="index.html#realisations"><span lang="fr">Réalisations</span><span lang="en">My work</span></a><a href="index.html#histoire"><span lang="fr">Mon histoire</span><span lang="en">My story</span></a><a href="index.html#communaute"><span lang="fr">Communauté</span><span lang="en">Community</span></a><a href="blogue.html"><span lang="fr">Blogue</span><span lang="en">Blog</span></a>
+      <a class="btn" href="index.html#soumission"><span lang="fr">Demander une soumission</span><span lang="en">Request a quote</span></a>
+      <button type="button" class="langue" id="langue" aria-label="Lire ce site en anglais / Read this site in English">EN/FR</button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap blog-hero" data-t-fr="Blogue" data-t-en="Blog">
+  <h1><span lang="fr">Blogue</span><span lang="en">Blog</span></h1>
+  <p class="lede"><span lang="fr">Ce que j'apprends en créant des applications, pour t'aider à lancer la tienne.</span><span lang="en">What I learn building apps, to help you launch yours.</span></p>
+</div>
+<div class="wrap cartes">
+<a class="carte" href="blogue-decider-quoi-mettre-dans-ton-app.html">
+  <span class="meta"><span lang="fr">11 octobre 2026 · 3 min</span><span lang="en">October 11, 2026 · 3 min</span></span>
+  <h2><span lang="fr">Comment j&#x27;ai décidé quoi mettre dans SmartGrocer</span><span lang="en">How I decided what goes into SmartGrocer</span></h2>
+  <p><span lang="fr">Une bonne app se construit en choisissant ce qu&#x27;on garde. Voici comment j&#x27;ai fait mes choix, et ce que j&#x27;en ai appris.</span><span lang="en">A good app is built by choosing what to keep. Here is how I made my choices, and what I learned.</span></p>
+  <span class="plus"><span lang="fr">Lire l'article →</span><span lang="en">Read the article →</span></span>
+</a>
+<a class="carte" href="blogue-savoir-si-ton-idee-dapp-va-reussir.html">
+  <span class="meta"><span lang="fr">11 octobre 2026 · 3 min</span><span lang="en">October 11, 2026 · 3 min</span></span>
+  <h2><span lang="fr">Savoir si ton idée d&#x27;app a une chance de réussir</span><span lang="en">How to tell if your app idea has a chance</span></h2>
+  <p><span lang="fr">Personne ne peut le garantir, mais tu peux le vérifier avant de passer des mois à construire. Ma méthode, avec mes erreurs.</span><span lang="en">Nobody can guarantee it, but you can check before spending months building. My method, mistakes included.</span></p>
+  <span class="plus"><span lang="fr">Lire l'article →</span><span lang="en">Read the article →</span></span>
+</a>
+<a class="carte" href="blogue-mvp-commencer-petit.html">
+  <span class="meta"><span lang="fr">11 octobre 2026 · 3 min</span><span lang="en">October 11, 2026 · 3 min</span></span>
+  <h2><span lang="fr">Le MVP: lancer petit pour apprendre vite</span><span lang="en">The MVP: launch small, learn fast</span></h2>
+  <p><span lang="fr">Un MVP n&#x27;est pas une version bâclée: c&#x27;est la plus petite version qui permet d&#x27;apprendre. Comment j&#x27;ai fait avec SmartGrocer.</span><span lang="en">An MVP is not a sloppy version: it is the smallest version that lets you learn. How I did it with SmartGrocer.</span></p>
+  <span class="plus"><span lang="fr">Lire l'article →</span><span lang="en">Read the article →</span></span>
+</a>
+</div>
+</main>
+<footer><div class="wrap bar"><strong>Lance ton app</strong><span><span lang="fr">© 2026 Timmy Villeneuve, Joliette (Québec). Tous droits réservés.</span><span lang="en">© 2026 Timmy Villeneuve, Joliette (Quebec). All rights reserved.</span></span><a href="index.html#vie-privee"><span lang="fr">Vie privée et conditions</span><span lang="en">Privacy and terms</span></a></div></footer>
+<script>
+(function(){
+  var b=document.getElementById('langue');
+  function maj(l){document.documentElement.dataset.l=l;document.documentElement.lang=l==='en'?'en-CA':'fr-CA';b.textContent=l==='en'?'FR':'EN';
+    var t=document.querySelector('[data-t-'+l+']');if(t)document.title=t.getAttribute('data-t-'+l)+' | Lance ton app';}
+  b.addEventListener('click',function(){var l=document.documentElement.dataset.l==='en'?'fr':'en';maj(l);try{localStorage.setItem('lta_langue',l)}catch(e){}});
+  maj(document.documentElement.dataset.l);
+})();
+</script>
+</body>
+</html>
