@@ -261,6 +261,11 @@ dialog.loupe::backdrop{background:rgba(6,20,24,.82)}
 .com-photo{margin:-20px -20px 4px;background:var(--deep);border-radius:20px 20px 0 0;overflow:hidden;display:flex;justify-content:center;padding:18px 18px 0}
 .com-photo img{display:block;width:min(100%,230px);height:auto;border-radius:18px 18px 0 0;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .com-carte{overflow:hidden}
+
+.bandeau{margin:28px 0 8px;padding:0}
+.bandeau img{display:block;width:100%;max-width:none;height:clamp(180px,30vw,340px);object-fit:cover;border-radius:20px;background:var(--tint)}
+.bandeau figcaption{margin-top:8px;font-size:.85rem;color:var(--soft)}
+.bandeau figcaption a{color:inherit}
 </style>
 </head>
 <body>
@@ -343,6 +348,7 @@ dialog.loupe::backdrop{background:rgba(6,20,24,.82)}
     <div class="wrap">
       <h2>Comment ça se passe</h2>
       <p class="lede">Quatre étapes, dans cet ordre. Tu sais toujours où on en est.</p>
+      <figure class="bandeau"><img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1400&q=70" srcset="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=700&q=70 700w, https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1400&q=70 1400w" sizes="(max-width:1148px) 100vw, 1052px" width="1400" height="560" alt="" loading="lazy"><figcaption>Photo : <a href="https://unsplash.com/photos/person-writing-on-white-paper-v9FQR4tbIq8" rel="noopener">Kelly Sikkema</a> / <a href="https://unsplash.com" rel="noopener">Unsplash</a></figcaption></figure>
       <ol class="parcours">
         <li><h3>Ton idée</h3><p>On clarifie ce que l'application doit faire, et pour qui.</p></li>
         <li><h3>La construction</h3><p>Je la bâtis, ou je te guide pour la bâtir toi-même.</p></li>
@@ -356,6 +362,7 @@ dialog.loupe::backdrop{background:rgba(6,20,24,.82)}
     <div class="wrap">
       <h2>Quatre façons de travailler ensemble</h2>
       <p class="lede">Tu choisis selon ce que tu veux : apprendre à le faire, me le confier, franchir la dernière étape, ou protéger ce que tu as déjà.</p>
+      <figure class="bandeau"><img src="https://images.unsplash.com/photo-1618788372246-79faff0c3742?auto=format&fit=crop&w=1400&q=70" srcset="https://images.unsplash.com/photo-1618788372246-79faff0c3742?auto=format&fit=crop&w=700&q=70 700w, https://images.unsplash.com/photo-1618788372246-79faff0c3742?auto=format&fit=crop&w=1400&q=70 1400w" sizes="(max-width:1148px) 100vw, 1052px" width="1400" height="560" alt="" loading="lazy"><figcaption>Photo : <a href="https://unsplash.com/photos/person-holding-black-ipad-with-green-plant-dJpupM4LiS4" rel="noopener">Faizur Rehman</a> / <a href="https://unsplash.com" rel="noopener">Unsplash</a></figcaption></figure>
       <div class="services">
         <article class="service">
           <div class="pasto"><svg class="i"><use href="#i-guide"/></svg></div>
@@ -402,6 +409,7 @@ dialog.loupe::backdrop{background:rgba(6,20,24,.82)}
     <div class="wrap">
       <h2>Publier sur un Store, c'est là que la plupart abandonnent</h2>
       <p class="lede">Je suis passé par chacune de ces étapes avec ma propre application, SmartGrocer, sur Google Play comme sur l'App Store.</p>
+      <figure class="bandeau"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1400&q=70" srcset="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=700&q=70 700w, https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1400&q=70 1400w" sizes="(max-width:1148px) 100vw, 1052px" width="1400" height="560" alt="" loading="lazy"><figcaption>Photo : <a href="https://unsplash.com/photos/space-gray-iphone-x-9e9PD9blAto" rel="noopener">William Hook</a> / <a href="https://unsplash.com" rel="noopener">Unsplash</a></figcaption></figure>
       <ol class="etapes">
         <li><strong>Empaqueter l'application</strong><span>Transformer le site en fichier installable, avec sa clé de signature.</span></li>
         <li><strong>Lier le domaine</strong><span>Déposer le fichier <code>assetlinks.json</code> pour faire disparaître la barre d'adresse.</span></li>
