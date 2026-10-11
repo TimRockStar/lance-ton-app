@@ -413,6 +413,13 @@ header nav .btn{padding:.5em 1em;font-size:.92rem;white-space:nowrap}
 .x-front{transform:translateZ(7px)}
 .x-back{transform:rotateY(180deg) translateZ(7px)}
 .x-epais{position:absolute;inset:0;border-radius:34px;background:linear-gradient(90deg,#2b2b31,#17171a);box-shadow:0 0 0 1px rgba(255,77,90,.35)}
+
+/* le téléphone tourne seul : plus de défilement bloqué */
+.x-scene{height:auto;padding-block:80px}
+.x-pin{position:static;height:auto;display:block}
+.x-stage{height:min(70vh,640px)}
+.x-defile{display:none}
+@media (max-width:860px){.x-scene{padding-block:44px}.x-stage{height:min(52vh,460px)}}
 </style>
 </head>
 <body>
@@ -919,19 +926,6 @@ loupe.addEventListener('touchend',e=>{ if(lx===null) return; const d=e.changedTo
       formes.forEach(f=>{ const d=+f.dataset.depth; f.style.transform='translate3d('+(mx*-30*d)+'px,'+(my*-30*d - sy*.06*d)+'px,0)'; });
       bandeaux.forEach(im=>{ const r=im.parentElement.getBoundingClientRect(); const t=Math.min(1,Math.max(0,(vh-r.top)/(vh+r.height))); im.style.transform='scale('+(1.18-.18*Math.min(1,t*1.6))+')'; });
     }
-    if(scene && !reduit && tel){
-      const r=scene.getBoundingClientRect(); const total=r.height-vh;
-      if(r.top<vh && r.bottom>0){
-        const p=Math.min(1,Math.max(0,-r.top/total)); const th=p*(N-1)*180; const f=Math.max(0,Math.min(N-1,Math.round(th/180)));
-        tel.style.transform='rotateY('+th+'deg) rotateX('+(Math.sin(th*Math.PI/180)*-6)+'deg)';
-        const voisin=Math.max(0,Math.min(N-1,f+((th/180-f)>=0?1:-1)));
-        const [pf,pb]=(f%2===0)?[f,voisin]:[voisin,f];
-        const a=APPS[pf][1], b=APPS[pb][1];
-        if(!imA.src.endsWith('app-'+a+'.jpg')) imA.src='img/app-'+a+'.jpg';
-        if(!imB.src.endsWith('app-'+b+'.jpg')) imB.src='img/app-'+b+'.jpg';
-        majTexte(f);
-      }
-    }
   }
   function majTexte(f){
     const en=(typeof LANGUE!=='undefined'&&LANGUE==='en');
@@ -939,6 +933,26 @@ loupe.addEventListener('touchend',e=>{ if(lx===null) return; const d=e.changedTo
     nom.textContent=APPS[f][0]; desc.textContent=APPS[f][en?3:2];
     [...pts.children].forEach((d,k)=>d.classList.toggle('on',k===f));
   }
+
+  // ---- le téléphone tourne tout seul (sans bloquer le défilement)
+  let visible=false;
+  if(scene && 'IntersectionObserver' in window) new IntersectionObserver(es=>{ visible=es[0].isIntersecting; }).observe(scene);
+  const DUREE=4400, PAUSE=3000;
+  function tourner(t){
+    if(tel && visible && !reduit){
+      const s=Math.floor(t/DUREE), ph=t%DUREE; let r=0;
+      if(ph>PAUSE){ const x=(ph-PAUSE)/(DUREE-PAUSE); r=x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2; }
+      const th=(s+r)*180, cur=s%N, suiv=(s+1)%N;
+      tel.style.transform='rotateY('+th+'deg) rotateX('+(Math.sin(r*Math.PI)*-5)+'deg)';
+      const [pf,pb]=(s%2===0)?[cur,suiv]:[suiv,cur];
+      const a=APPS[pf][1], b=APPS[pb][1];
+      if(!imA.src.endsWith('app-'+a+'.jpg')) imA.src='img/app-'+a+'.jpg';
+      if(!imB.src.endsWith('app-'+b+'.jpg')) imB.src='img/app-'+b+'.jpg';
+      majTexte(r<.5?cur:suiv);
+    }
+    requestAnimationFrame(tourner);
+  }
+  if(!reduit) requestAnimationFrame(tourner);
   let tick=0; const demande=()=>{ if(!tick) tick=requestAnimationFrame(rendre); };
   addEventListener('scroll',demande,{passive:true}); addEventListener('resize',demande);
   const lg=document.getElementById('langue'); if(lg) lg.addEventListener('click',()=>setTimeout(()=>{courant=-1;demande();},60));
