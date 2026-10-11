@@ -27,7 +27,8 @@
   <a class="retour" href="blogue.html"><span lang="fr">← Retour au blogue</span><span lang="en">← Back to the blog</span></a>
   <h1><span lang="fr">Savoir si ton idée d&#x27;app a une chance de réussir</span><span lang="en">How to tell if your app idea has a chance</span></h1>
   <p class="meta"><span lang="fr">Par Timmy Villeneuve · 11 octobre 2026 · 3 min</span><span lang="en">By Timmy Villeneuve · October 11, 2026 · 3 min</span></p>
-  <div lang="fr"><p>Avant de passer des mois à construire une app, une question mérite d'être posée: est-ce que quelqu'un en a vraiment besoin? Personne ne peut te garantir le succès, mais tu peux vérifier plusieurs choses tôt. Voici ce que j'ai appris en construisant SmartGrocer et mes autres applications.</p>
+  <figure class="photo"><img src="https://images.unsplash.com/photo-1592890288564-76628a30a657?auto=format&fit=crop&w=1200&q=70" srcset="https://images.unsplash.com/photo-1592890288564-76628a30a657?auto=format&fit=crop&w=640&q=70 640w, https://images.unsplash.com/photo-1592890288564-76628a30a657?auto=format&fit=crop&w=1200&q=70 1200w" sizes="(max-width:760px) 100vw, 720px" width="1200" height="675" alt="" data-alt-fr="Une personne qui tient un téléphone intelligent" data-alt-en="A person holding a smartphone" fetchpriority="high"><figcaption><span lang="fr">Photo: </span><span lang="en">Photo: </span><a href="https://unsplash.com/photos/person-holding-black-android-smartphone-wK-elt11pF0" rel="noopener">Jonas Leupe</a> / <a href="https://unsplash.com" rel="noopener">Unsplash</a></figcaption></figure>
+<div lang="fr"><p>Avant de passer des mois à construire une app, une question mérite d'être posée: est-ce que quelqu'un en a vraiment besoin? Personne ne peut te garantir le succès, mais tu peux vérifier plusieurs choses tôt. Voici ce que j'ai appris en construisant SmartGrocer et mes autres applications.</p>
 <h2>1. As-tu toi-même le problème?</h2>
 <p>SmartGrocer existe parce que je planifiais mes repas à partir des circulaires chaque semaine, et que ça m'agaçait. Je l'utilise encore chaque semaine. Quand tu es ton premier utilisateur, tu sais tout de suite si l'app est utile ou si elle t'ennuie.</p>
 <p>Si ton idée vient d'un problème que tu n'as jamais vécu, tu dois parler à beaucoup de gens avant de construire quoi que ce soit.</p>
@@ -88,7 +89,7 @@
 (function(){
   var b=document.getElementById('langue');
   function maj(l){document.documentElement.dataset.l=l;document.documentElement.lang=l==='en'?'en-CA':'fr-CA';b.textContent=l==='en'?'FR':'EN';
-    var t=document.querySelector('[data-t-'+l+']');if(t)document.title=t.getAttribute('data-t-'+l)+' | Lance ton app';}
+    var t=document.querySelector('[data-t-'+l+']');if(t)document.title=t.getAttribute('data-t-'+l)+' | Lance ton app';var im=document.querySelector('img[data-alt-'+l+']');if(im)im.alt=im.getAttribute('data-alt-'+l);}
   b.addEventListener('click',function(){var l=document.documentElement.dataset.l==='en'?'fr':'en';maj(l);try{localStorage.setItem('lta_langue',l)}catch(e){}});
   maj(document.documentElement.dataset.l);
 })();

@@ -27,7 +27,8 @@
   <a class="retour" href="blogue.html"><span lang="fr">← Retour au blogue</span><span lang="en">← Back to the blog</span></a>
   <h1><span lang="fr">Le MVP: lancer petit pour apprendre vite</span><span lang="en">The MVP: launch small, learn fast</span></h1>
   <p class="meta"><span lang="fr">Par Timmy Villeneuve · 11 octobre 2026 · 3 min</span><span lang="en">By Timmy Villeneuve · October 11, 2026 · 3 min</span></p>
-  <div lang="fr"><p>MVP veut dire « produit minimum viable ». Ce n'est pas une version bâclée: c'est la plus petite version de ton app qui te permet d'apprendre si les gens en ont besoin. Tu n'as pas besoin d'un produit parfait pour commencer, mais d'un produit qui fait bien une chose.</p>
+  <figure class="photo"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=70" srcset="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=640&q=70 640w, https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=70 1200w" sizes="(max-width:760px) 100vw, 720px" width="1200" height="675" alt="" data-alt-fr="Une personne avec un crayon devant un ordinateur portable" data-alt-en="A person with a pencil next to a laptop" fetchpriority="high"><figcaption><span lang="fr">Photo: </span><span lang="en">Photo: </span><a href="https://unsplash.com/photos/person-holding-pencil-near-laptop-computer-5fNmWej4tAA" rel="noopener">Scott Graham</a> / <a href="https://unsplash.com" rel="noopener">Unsplash</a></figcaption></figure>
+<div lang="fr"><p>MVP veut dire « produit minimum viable ». Ce n'est pas une version bâclée: c'est la plus petite version de ton app qui te permet d'apprendre si les gens en ont besoin. Tu n'as pas besoin d'un produit parfait pour commencer, mais d'un produit qui fait bien une chose.</p>
 <h2>Mon MVP, concrètement</h2>
 <p>SmartGrocer a commencé comme une page web unique, une application web progressive que l'on installe depuis le navigateur. Pas de boutique d'applications au départ, pas d'équipe, pas de serveur compliqué. Ça m'a permis de la tester moi-même chaque semaine avant de la montrer à qui que ce soit.</p>
 <p>Les étapes sont venues ensuite, une à la fois:</p>
@@ -90,7 +91,7 @@
 (function(){
   var b=document.getElementById('langue');
   function maj(l){document.documentElement.dataset.l=l;document.documentElement.lang=l==='en'?'en-CA':'fr-CA';b.textContent=l==='en'?'FR':'EN';
-    var t=document.querySelector('[data-t-'+l+']');if(t)document.title=t.getAttribute('data-t-'+l)+' | Lance ton app';}
+    var t=document.querySelector('[data-t-'+l+']');if(t)document.title=t.getAttribute('data-t-'+l)+' | Lance ton app';var im=document.querySelector('img[data-alt-'+l+']');if(im)im.alt=im.getAttribute('data-alt-'+l);}
   b.addEventListener('click',function(){var l=document.documentElement.dataset.l==='en'?'fr':'en';maj(l);try{localStorage.setItem('lta_langue',l)}catch(e){}});
   maj(document.documentElement.dataset.l);
 })();

@@ -27,7 +27,8 @@
   <a class="retour" href="blogue.html"><span lang="fr">← Retour au blogue</span><span lang="en">← Back to the blog</span></a>
   <h1><span lang="fr">Comment j&#x27;ai décidé quoi mettre dans SmartGrocer</span><span lang="en">How I decided what goes into SmartGrocer</span></h1>
   <p class="meta"><span lang="fr">Par Timmy Villeneuve · 11 octobre 2026 · 3 min</span><span lang="en">By Timmy Villeneuve · October 11, 2026 · 3 min</span></p>
-  <div lang="fr"><p>Une bonne app ne se construit pas en ajoutant tout ce qui nous passe par la tête: elle se construit en choisissant ce qu'on garde. Voici comment j'ai fait ces choix pour SmartGrocer, mon application d'épicerie bilingue, et ce que j'ai appris en cours de route.</p>
+  <figure class="photo"><img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=70" srcset="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=640&q=70 640w, https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=70 1200w" sizes="(max-width:760px) 100vw, 720px" width="1200" height="675" alt="" data-alt-fr="Croquis de maquettes d&#x27;écrans d&#x27;application" data-alt-en="Sketches of app screen layouts" fetchpriority="high"><figcaption><span lang="fr">Photo: </span><span lang="en">Photo: </span><a href="https://unsplash.com/photos/watercolor-wireframe-sketches-of-website-layouts-tZc3vjPCk-Q" rel="noopener">Hal Gatewood</a> / <a href="https://unsplash.com" rel="noopener">Unsplash</a></figcaption></figure>
+<div lang="fr"><p>Une bonne app ne se construit pas en ajoutant tout ce qui nous passe par la tête: elle se construit en choisissant ce qu'on garde. Voici comment j'ai fait ces choix pour SmartGrocer, mon application d'épicerie bilingue, et ce que j'ai appris en cours de route.</p>
 <p>SmartGrocer est née d'une frustration personnelle. Chaque semaine, je planifiais mes repas à partir des circulaires en ligne, et ça me prenait un temps fou. Je voulais un outil qui fasse ce travail à ma place.</p>
 <h2>Partir du problème, pas des fonctions</h2>
 <p>Ma première question n'était pas « quelles fonctions je mets? » mais « quel est mon problème exact? ». La réponse tenait en une phrase: je perds du temps à trouver quoi cuisiner avec les rabais de la semaine.</p>
@@ -90,7 +91,7 @@
 (function(){
   var b=document.getElementById('langue');
   function maj(l){document.documentElement.dataset.l=l;document.documentElement.lang=l==='en'?'en-CA':'fr-CA';b.textContent=l==='en'?'FR':'EN';
-    var t=document.querySelector('[data-t-'+l+']');if(t)document.title=t.getAttribute('data-t-'+l)+' | Lance ton app';}
+    var t=document.querySelector('[data-t-'+l+']');if(t)document.title=t.getAttribute('data-t-'+l)+' | Lance ton app';var im=document.querySelector('img[data-alt-'+l+']');if(im)im.alt=im.getAttribute('data-alt-'+l);}
   b.addEventListener('click',function(){var l=document.documentElement.dataset.l==='en'?'fr':'en';maj(l);try{localStorage.setItem('lta_langue',l)}catch(e){}});
   maj(document.documentElement.dataset.l);
 })();

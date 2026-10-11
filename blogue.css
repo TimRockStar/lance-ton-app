@@ -19,3 +19,8 @@
 .appel{margin-top:2.4rem;padding:24px;border-radius:16px;background:var(--tint);border:1px solid var(--line)}
 .appel p{margin:0 0 14px}
 html[data-l="fr"] [lang="en"],html[data-l="en"] [lang="fr"]{display:none!important}
+.photo{margin:0 0 1.6rem}
+.photo img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:16px;background:var(--tint)}
+.photo figcaption{margin-top:8px;font-size:.85rem;color:var(--soft)}
+.photo figcaption a{color:inherit}
+.blog-vig{max-width:none;display:block;width:calc(100% + 52px);margin:-26px -26px 4px;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:18px 18px 0 0;background:var(--tint)}
