@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="blogue.css">
 <link rel="stylesheet" href="blogue-noir.css">
 <script>document.documentElement.dataset.l=(function(){try{var l=localStorage.getItem('lta_langue');if(l)return l}catch(e){}return /^en/i.test(navigator.language||'')?'en':'fr'})();</script>
-<style>.statut{display:inline-flex;align-items:center;gap:8px;font-size:.88rem;font-weight:700;color:var(--soft)}.statut::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--coral)}.statut.test::before{background:var(--ok)}div.carte:hover{transform:none;border-color:var(--line)}.invite{border-style:dashed}</style>
+<style>.statut{display:inline-flex;align-items:center;gap:8px;font-size:.88rem;font-weight:700;color:var(--soft)}.statut::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--coral)}.statut.test::before{background:var(--ok)}div.carte:hover{transform:none;border-color:var(--line)}.invite{border-style:dashed}.carte .capt{height:240px;border-radius:12px;border:1px solid var(--line);background:#0c0c0f;overflow:hidden}.carte .capt img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}</style>
 </head>
 <body>
 <header>
@@ -42,17 +42,20 @@
 <div class="wrap cartes">
 <a class="carte" href="https://angloshift.com" target="_blank" rel="noopener">
   <span class="statut test"><span lang="fr">En test</span><span lang="en">In testing</span></span>
+  <div class="capt"><img src="img/app-angloshift.jpg" alt="AngloShift" width="480" height="800" loading="lazy"></div>
   <h2>AngloShift</h2>
   <p><span lang="fr">Un tuteur d'anglais pour les francophones qui en ont besoin au travail : mises en situation réelles et entrevue simulée.</span><span lang="en">An English tutor for French speakers who need it at work: real-life situations and a mock interview.</span></p>
   <span class="plus"><span lang="fr">Essayer l'application →</span><span lang="en">Try the app →</span></span>
 </a>
 <div class="carte">
   <span class="statut"><span lang="fr">En construction</span><span lang="en">Under construction</span></span>
+  <div class="capt"><img src="img/app-bilanclair.jpg" alt="BilanClair" width="480" height="800" loading="lazy"></div>
   <h2>BilanClair</h2>
   <p><span lang="fr">Un outil pour les travailleurs autonomes du Québec : revenus, dépenses déductibles et export pour le comptable.</span><span lang="en">A tool for self-employed workers in Quebec: income, deductible expenses and an export for the accountant.</span></p>
 </div>
 <div class="carte">
   <span class="statut"><span lang="fr">En construction</span><span lang="en">Under construction</span></span>
+  <div class="capt"><img src="img/app-myfirstapp.jpg" alt="MyFirstApp" width="480" height="800" loading="lazy"></div>
   <h2>MyFirstApp</h2>
   <p><span lang="fr">Une formation guidée par l'IA, en cinq étapes, pour créer sa toute première application sans connaissances techniques.</span><span lang="en">An AI-guided course, in five steps, to create your very first app with no technical background.</span></p>
 </div>
