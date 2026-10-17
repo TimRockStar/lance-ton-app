@@ -459,6 +459,8 @@ header nav .btn{padding:.5em 1em;font-size:.92rem;white-space:nowrap}
 .x-pin{height:auto;overflow:visible;padding-block:20px}
 .x-stage{height:min(84vh,700px);overflow:visible}
 .x-phone{height:min(66vh,600px)}
+/* champ piège anti-robots : invisible pour les visiteurs */
+.piege{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
 </style>
 </head>
 <body>
@@ -758,6 +760,7 @@ header nav .btn{padding:.5em 1em;font-size:.92rem;white-space:nowrap}
       <div class="demande">
         <div class="fiche">
           <form id="demande" novalidate>
+<div class="piege" aria-hidden="true"><label for="f-site">Ne pas remplir ce champ</label><input id="f-site" name="site" type="text" tabindex="-1" autocomplete="off"></div>
             <div class="champ"><label for="f-nom">Ton nom</label><input id="f-nom" name="nom" autocomplete="name" required></div>
             <div class="champ"><label for="f-courriel">Ton courriel</label><input id="f-courriel" name="courriel" type="email" autocomplete="email" required></div>
             <div class="champ"><label for="f-service">Ce qu'il te faut</label>
@@ -851,6 +854,7 @@ emailjs.init('2cNfgyonkmXqvbV-N');
 form.addEventListener('submit',async e=>{
   e.preventDefault();
   const d=Object.fromEntries(new FormData(form));
+  if(d.site){form.reset();return;} // champ piège rempli : robot, on n'envoie rien
   const ok=d.nom.trim()&&/^\S+@\S+\.\S+$/.test(d.courriel.trim())&&d.projet.trim()&&d.conditions;
   err.hidden=!!ok; errEnvoi.hidden=true; if(!ok){recap.hidden=true;return;}
   const texte='Nouvelle demande de soumission (site Lance ton app)\n\nNom : '+d.nom.trim()+'\nCourriel : '+d.courriel.trim()+'\nBesoin : '+d.service+'\nDélai : '+d.delai+'\nConditions de service lues : oui\nAffichage sur la page En cours : '+(d.affichage?'accepté (à confirmer par écrit)':'non coché')+'\nLangue du site : '+LANGUE+'\n\nProjet :\n'+d.projet.trim();
