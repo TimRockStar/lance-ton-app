@@ -527,7 +527,7 @@ var APPS=[
 var I18N={
  fr:{nav_quote:"Soumission",eyebrow:"Création · Publication · Accompagnement",h1a:"De ton idée",h1b:"jusqu'au store",
   hero_p:"Des apps qui règlent de vrais problèmes. Entre dans le couloir et vois ce que j'ai construit.",enter:"Entrer dans le couloir",scroll:"Défile",hud:"Mes apps",
-  v_eyebrow:"Regarde",v_h:"Tu as une idée d'app ?",snd_on:"Activer le son",snd_off:"Couper le son",door_h:"Et la tienne ?",door_p:"Chaque app ici a commencé par une idée. Raconte-moi la tienne.",door_b:"Demander une soumission",
+  v_eyebrow:"Regarde",v_h:"Tu as une idée d'app ?",rep:"Rejouer la vidéo",snd_on:"Activer le son",snd_off:"Couper le son",door_h:"Et la tienne ?",door_p:"Chaque app ici a commencé par une idée. Raconte-moi la tienne.",door_b:"Demander une soumission",
   srv_eyebrow:"Ce que je fais",s1:"Apps web & mobiles",s1d:"Des outils sur mesure, sur téléphone et sur ordinateur.",
   s2:"Sites web",s2d:"Un site qui a de l'allure et qui te ressemble.",s3:"Publication",s3d:"Google Play et App Store, de A à Z.",
   s4:"Accompagnement",s4d:"Tu veux la construire toi-même ? Je te guide, d'une personne à une autre.",
@@ -540,7 +540,7 @@ var I18N={
   mail_sub:"Demande de soumission — Lance ton app",mail_name:"Nom",mail_email:"Courriel",mail_type:"Type de projet",mail_when:"Quand",mail_idea:"Mon idée"},
  en:{nav_quote:"Get a quote",eyebrow:"Build · Publish · Coach",h1a:"From your idea",h1b:"to the store",
   hero_p:"Apps that solve real problems. Step into the corridor and see what I've built.",enter:"Enter the corridor",scroll:"Scroll",hud:"My apps",
-  v_eyebrow:"Watch",v_h:"Got an app idea?",snd_on:"Turn sound on",snd_off:"Mute",door_h:"And yours?",door_p:"Every app here started as an idea. Tell me about yours.",door_b:"Request a quote",
+  v_eyebrow:"Watch",v_h:"Got an app idea?",rep:"Replay video",snd_on:"Turn sound on",snd_off:"Mute",door_h:"And yours?",door_p:"Every app here started as an idea. Tell me about yours.",door_b:"Request a quote",
   srv_eyebrow:"What I do",s1:"Web & mobile apps",s1d:"Custom tools, on phone and on desktop.",
   s2:"Websites",s2d:"A site with style that looks like you.",s3:"Publishing",s3d:"Google Play and App Store, start to finish.",
   s4:"Coaching",s4d:"Want to build it yourself? I'll guide you, one person to another.",
@@ -572,8 +572,8 @@ APPS.forEach(function(a,i){
   panels.push({el:el,z:-(START+i*SPACING),side:left?-1:1,app:a,door:false});
 });
 var door=document.createElement("div");door.className="panel door";
-door.innerHTML='<video muted loop playsinline preload="auto" src="https://lancetonapp.com/video/presentation.mp4"></video>'+
-  '<div class="ov"><h3 data-i18n="door_h"></h3><div class="btns"><button type="button" class="pill" id="sndBtn"></button><a class="pill solid" href="#soumission" data-i18n="door_b"></a></div></div>';
+door.innerHTML='<video muted playsinline preload="auto" src="https://lancetonapp.com/video/presentation.mp4"></video>'+
+  '<div class="ov"><h3 data-i18n="door_h"></h3><div class="btns"><button type="button" class="pill" id="sndBtn"></button><button type="button" class="pill" id="repBtn" style="display:none"></button><a class="pill solid" href="#soumission" data-i18n="door_b"></a></div></div>';
 tunnel.appendChild(door);
 var doorZ=-(START+APPS.length*SPACING);
 panels.push({el:door,z:doorZ,side:0,door:true});
@@ -581,20 +581,24 @@ var CAM_MAX=-doorZ-330;
 
 /* ---------- Vidéo au fond du couloir ---------- */
 var dv=$("video",door),sndBtn=$("#sndBtn",door),userPaused=false;
-function updSnd(){sndBtn.textContent=I18N[lang][dv.muted?"snd_on":"snd_off"];}
+var repBtn=$("#repBtn",door);
+function updSnd(){sndBtn.textContent=I18N[lang][dv.muted?"snd_on":"snd_off"];repBtn.textContent="↻ "+I18N[lang].rep;}
+function replay(){dv.currentTime=0;repBtn.style.display="none";dv.play().catch(function(){});}
+repBtn.addEventListener("click",function(e){e.stopPropagation();replay();});
+dv.addEventListener("ended",function(){repBtn.style.display="";});
 function toggleSnd(){dv.muted=!dv.muted;if(!dv.muted){dv.volume=1;if(dv.paused)dv.play().catch(function(){});}updSnd();}
 sndBtn.addEventListener("click",function(e){e.stopPropagation();toggleSnd();});
 /* Le clic ne traverse pas toujours le décor 3D : on teste nous-mêmes si le curseur est sur un bouton de la porte */
 var doorQuote=$("a.pill",door),stageEl=$("#stage");
 function hitBtn(e){
   if(parseFloat(door.style.opacity||1)<.5)return null;
-  var els=[sndBtn,doorQuote];
+  var els=[sndBtn,doorQuote];if(repBtn.style.display!=="none")els.push(repBtn);
   for(var i=0;i<els.length;i++){var r=els[i].getBoundingClientRect();if(e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom)return els[i];}
   return null;
 }
 stageEl.addEventListener("click",function(e){
   var h=hitBtn(e);if(!h||e.target===h)return;
-  if(h===sndBtn)toggleSnd();else location.hash="#soumission";
+  if(h===sndBtn)toggleSnd();else if(h===repBtn)replay();else location.hash="#soumission";
 });
 stageEl.addEventListener("mousemove",function(e){stageEl.style.cursor=hitBtn(e)?"pointer":"";},{passive:true});
 
@@ -786,8 +790,10 @@ function frame(){
   tn.style.transform="translate3d(0,0,"+cur.toFixed(1)+"px)";
   cam.style.transform=reduce?"none":"rotateY("+(cmx*3.5).toFixed(2)+"deg) rotateX("+(-cmy*2.5).toFixed(2)+"deg)";
   var dd=-(doorZ+cur);
-  if(dd<1700){if(dv.paused)dv.play().catch(function(){});}
-  else if(dd>2400){if(!dv.paused){dv.pause();dv.currentTime=0;}}
+  var offscreen=corridor.getBoundingClientRect().bottom<0;
+  if(offscreen){if(!dv.paused)dv.pause();}
+  else if(dd<1700){if(dv.paused&&!dv.ended)dv.play().catch(function(){});}
+  else if(dd>2400){if(!dv.paused||dv.currentTime>0){dv.pause();dv.currentTime=0;repBtn.style.display="none";}}
   var best=-1,bestD=1e9;
   panels.forEach(function(p,i){
     var d=-(p.z+cur);               /* distance devant la caméra */
