@@ -80,7 +80,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
 }
 
 /* CORRIDOR */
-.corridor{position:relative;z-index:2;height:720vh}
+.corridor{position:relative;z-index:2;height:830vh}
 .stage{position:sticky;top:0;height:100vh;overflow:hidden;perspective:900px;perspective-origin:50% 50%;background:radial-gradient(ellipse at 50% 50%,#1a0508 0%,#07070a 62%)}
 .cam{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
 .tunnel{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
@@ -754,7 +754,7 @@ var cur=0,target=0,mx=0,my=0,cmx=0,cmy=0,lastY=window.scrollY,vel=0;
 function onScroll(){
   var top=corridor.offsetTop,range=corridor.offsetHeight-window.innerHeight;
   var p=Math.max(0,Math.min(1,(window.scrollY-top)/range));
-  target=p*CAM_MAX;
+  target=Math.min(1,p/0.87)*CAM_MAX; /* le dernier panneau reste affiché pendant ~110vh de scroll */
   barfill.style.width=(p*100).toFixed(1)+"%";
   updHeroScroll();updStory();updPwr();
 }
