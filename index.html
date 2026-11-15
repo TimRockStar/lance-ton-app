@@ -245,7 +245,7 @@ footer a{color:var(--red);text-decoration:none}
 .storyBig .w.it{font-style:italic}
 .storyEnd{padding-top:4vh}
 /* PARCOURS : scanner */
-.pwr{position:relative;z-index:2;height:calc(100vh + 6*55vh)}
+.pwr{position:relative;z-index:2;height:calc(100vh + 4*45vh)}
 .pwrPin{position:sticky;top:0;height:100vh;padding:78px 28px 24px;max-width:1300px;margin:0 auto;display:flex;flex-direction:column}
 .pwrHead{font:500 12px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);display:flex;gap:14px;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:14px}
 .pwrHead b{color:var(--red);font-weight:500}.pwrHead i{font-style:normal;color:#fff}
@@ -655,7 +655,7 @@ function pwrShow(i){
 function updPwr(){
   var r=pwrSec.getBoundingClientRect(),range=r.height-window.innerHeight;
   var p=Math.max(0,Math.min(.9999,-r.top/range));
-  var i=Math.floor(p*6);if(i!==pwrScrollIdx){pwrScrollIdx=i;pwrShow(i);}
+  var i=Math.min(5,Math.floor(p/0.9*5));if(i!==pwrScrollIdx){pwrScrollIdx=i;pwrShow(i);}
 }
 function drawPwr(){
   if(pwrAct<0)return;
