@@ -142,6 +142,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
 
 
 .panel.door{padding:0;display:block;overflow:hidden}
+.door .cap{position:absolute;top:16px;left:50%;transform:translateX(-50%);max-width:88%;z-index:6;background:rgba(0,0,0,.72);color:#fff;padding:7px 14px;border-radius:6px;font:600 clamp(11px,1.6vw,16px) var(--body);text-align:center;pointer-events:none;opacity:0;transition:opacity .2s}
+.door .cap.on{opacity:1}
 .door video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
 .door .ov{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 16px;display:flex;flex-direction:column;align-items:center;gap:10px;background:linear-gradient(transparent,rgba(0,0,0,.88))}
 .door .ov h3{font-size:clamp(26px,3.2vw,44px);margin:0}
@@ -575,7 +577,7 @@ APPS.forEach(function(a,i){
 });
 var door=document.createElement("div");door.className="panel door";
 door.innerHTML='<video muted playsinline preload="auto" src="https://lancetonapp.com/video/presentation.mp4"></video>'+
-  '<div class="ov"><h3 data-i18n="door_h"></h3><div class="btns"><button type="button" class="pill" id="sndBtn"></button><button type="button" class="pill" id="repBtn" style="display:none"></button><a class="pill solid" href="#soumission" data-i18n="door_b"></a></div></div>';
+  '<div class="cap" id="vcap" aria-live="off"></div><div class="ov"><h3 data-i18n="door_h"></h3><div class="btns"><button type="button" class="pill" id="sndBtn"></button><button type="button" class="pill" id="repBtn" style="display:none"></button><a class="pill solid" href="#soumission" data-i18n="door_b"></a></div></div>';
 tunnel.appendChild(door);
 var doorZ=-(START+APPS.length*SPACING);
 panels.push({el:door,z:doorZ,side:0,door:true});
@@ -583,6 +585,16 @@ var CAM_MAX=-doorZ-330;
 
 /* ---------- Vidéo au fond du couloir ---------- */
 var dv=$("video",door),sndBtn=$("#sndBtn",door),userPaused=false;
+
+/* Sous-titres de la vidéo (elle est muette au départ) : texte dans la langue du site */
+var CAPS=[[0,4,"Crée ton futur, lance ton app.","Create your future. Launch your app."],[8.9,11.6,"Tu me parles de ton idée, on la précise ensemble.","Tell me about your idea, and we'll shape it together."],[16.6,18.4,"Je veux suivre mes dépenses d'entreprise.","I want to track my business expenses."],[27.6,31.1,"On la teste pour de vrai jusqu'à ce que tout fonctionne comme tu le veux.","We test it for real until everything works the way you want."],[32.7,35.9,"Ton app est prête !","Your app is ready!"]],capEl=$("#vcap",door),capI=-2;
+function updCap(){
+  var t=dv.currentTime,k=-1;
+  if(!dv.paused||dv.ended||t>0){for(var i=0;i<CAPS.length;i++){if(t>=CAPS[i][0]&&t<=CAPS[i][1]){k=i;break;}}}
+  var key=k<0?-1:k+(lang==="en"?100:0);
+  if(key===capI)return;capI=key;
+  if(k<0){capEl.classList.remove("on");}else{capEl.textContent=CAPS[k][lang==="en"?3:2];capEl.classList.add("on");}
+}
 var repBtn=$("#repBtn",door);
 function updSnd(){sndBtn.textContent=I18N[lang][dv.muted?"snd_on":"snd_off"];repBtn.textContent="↻ "+I18N[lang].rep;}
 function replay(){dv.currentTime=0;repBtn.style.display="none";dv.play().catch(function(){});}
@@ -788,6 +800,7 @@ function frame(){
   tn.style.transform="translate3d(0,0,"+cur.toFixed(1)+"px)";
   cam.style.transform=reduce?"none":"rotateY("+(cmx*3.5).toFixed(2)+"deg) rotateX("+(-cmy*2.5).toFixed(2)+"deg)";
   var dd=-(doorZ+cur);
+  updCap();
   var offscreen=corridor.getBoundingClientRect().bottom<0;
   if(offscreen){if(!dv.paused)dv.pause();}
   else if(dd<1700){if(dv.paused&&!dv.ended)dv.play().catch(function(){});}
