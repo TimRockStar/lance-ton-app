@@ -108,6 +108,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
 .panel .num{font-family:var(--display);font-size:60px;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,45,61,.8)}
 .panel h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(26px,3vw,40px);line-height:1;margin:8px 0 10px;letter-spacing:.02em}
 .panel p{font-size:14px;color:#cfc8cc;line-height:1.45}
+.panel>div:first-child{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.panel h3{font-size:clamp(22px,2.4vw,34px)!important;overflow-wrap:anywhere}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .chip{font:600 10.5px var(--body);letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,255,255,.22);padding:4px 9px;border-radius:999px;color:#ddd}
 .chip.hot{border-color:var(--red);color:var(--red)}
@@ -224,7 +226,7 @@ footer a{color:var(--red);text-decoration:none}
   .srv{flex-direction:column;gap:6px}.srv span{text-align:left}
   .row{grid-template-columns:1fr}
   nav{padding:14px 16px}
-  .panel{padding:16px;gap:10px;grid-template-columns:1fr 34%}
+  .panel{padding:16px;gap:10px;grid-template-columns:1fr 30%}
   .panel .num{font-size:40px}.panel p{font-size:12px}
   .panel.door{--pw:320px;width:320px;height:340px;margin:-170px 0 0 -160px}
 }
@@ -515,10 +517,10 @@ var APPS=[
  {name:"MyFirstApp",img:"https://lancetonapp.com/img/app-myfirstapp.jpg",
   fr:{d:"Une formation guidée par l'IA, en cinq étapes, pour créer sa première app sans connaissances techniques.",t:["IA", "Formation", "En cours"]},
   en:{d:"A five-step, AI-guided course to build your first app with no technical skills.",t:["AI", "Training", "In progress"]}},
- {name:"Famillo",img:null,
+ {name:"Famillo",img:"https://lancetonapp.com/img/app-famillo.jpg",
   fr:{d:"Pour les proches aidants : coordonner la famille, les médicaments et les rendez-vous.",t:["Proches aidants", "Coordination", "En cours"]},
   en:{d:"For family caregivers: coordinate family, medications and appointments.",t:["Caregivers", "Coordination", "In progress"]}},
- {name:"Insisto",img:null,
+ {name:"Insisto",img:"https://lancetonapp.com/img/app-insisto.jpg",
   fr:{d:"Une app de rappels pour ne plus rien oublier.",t:["Rappels", "Android", "En cours"]},
   en:{d:"A reminder app so you never forget anything.",t:["Reminders", "Android", "In progress"]}}
 ];
@@ -749,9 +751,9 @@ function updReveal(){
 /* ---------- Mise à l'échelle (mobile) ---------- */
 function resize(){
   var w=window.innerWidth,r=document.documentElement.style;
-  if(w<700){r.setProperty("--off","250px");r.setProperty("--pw","300px");r.setProperty("--ph","230px");}
-  else if(w<1100){r.setProperty("--off","360px");r.setProperty("--pw","420px");r.setProperty("--ph","290px");}
-  else{r.setProperty("--off","420px");r.setProperty("--pw","460px");r.setProperty("--ph","300px");}
+  if(w<700){r.setProperty("--off","250px");r.setProperty("--pw","320px");r.setProperty("--ph","350px");}
+  else if(w<1100){r.setProperty("--off","360px");r.setProperty("--pw","440px");r.setProperty("--ph","340px");}
+  else{r.setProperty("--off","420px");r.setProperty("--pw","480px");r.setProperty("--ph","356px");}
   var off=w<700?250:(w<1100?360:420);
   panels.forEach(function(p){
     var x=p.side*(off-26),ang=p.side===0?0:(p.side<0?60:-60);
