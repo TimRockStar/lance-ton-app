@@ -245,11 +245,11 @@ footer a{color:var(--red);text-decoration:none}
 .storyBig .w.it{font-style:italic}
 .storyEnd{padding-top:4vh}
 /* PARCOURS : scanner */
-.pwr{position:relative;z-index:2;height:calc(100vh + 4*45vh)}
-.pwrPin{position:sticky;top:0;height:100vh;padding:78px 28px 24px;max-width:1300px;margin:0 auto;display:flex;flex-direction:column}
+.pwr{position:relative;z-index:2}
+.pwrPin{position:relative;padding:12vh 28px 10vh;max-width:1300px;margin:0 auto;display:flex;flex-direction:column}
 .pwrHead{font:500 12px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);display:flex;gap:14px;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:14px}
 .pwrHead b{color:var(--red);font-weight:500}.pwrHead i{font-style:normal;color:#fff}
-.pwrGrid{flex:1;display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;min-height:0}
+.pwrGrid{margin-top:3vh;display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;min-height:0}
 .pwrList{list-style:none}
 .pwrRow{display:grid;grid-template-columns:96px 1fr auto;align-items:end;gap:10px;border-top:1px solid rgba(255,255,255,.1);padding:8px 0;cursor:pointer}
 .pwrList .pwrRow:last-child{border-bottom:1px solid rgba(255,255,255,.1)}
@@ -271,7 +271,7 @@ footer a{color:var(--red);text-decoration:none}
 @keyframes sweep{to{transform:rotate(360deg)}}
 .pwrAx{font:500 11px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#9a9aa2}
 @media (max-width:860px){
-  .pwrPin{padding:70px 16px 12px}
+  .pwrPin{padding:9vh 16px 6vh}
   .pwrGrid{grid-template-columns:1fr;gap:12px;align-content:start}
   .pwrRow{grid-template-columns:60px 1fr;padding:3px 0}.pwrRow em{display:none}.pwrRow code{padding-bottom:6px;font-size:10px}
   .pwrRow h3{font-size:clamp(20px,6.4vw,30px)}
@@ -652,11 +652,7 @@ function pwrShow(i){
   var codes=[1,2,3,4,5].map(function(n){return L["pw_a"+n].slice(0,3)+"<b>"+("00"+PW[i][n-1]).slice(-3)+"</b>";});
   $("#pwrNums").innerHTML=codes.map(function(c){return "<span>"+c+"</span>";}).join("");
 }
-function updPwr(){
-  var r=pwrSec.getBoundingClientRect(),range=r.height-window.innerHeight;
-  var p=Math.max(0,Math.min(.9999,-r.top/range));
-  var i=Math.min(5,Math.floor(p/0.9*5));if(i!==pwrScrollIdx){pwrScrollIdx=i;pwrShow(i);}
-}
+function updPwr(){if(pwrScrollIdx<0){pwrScrollIdx=0;pwrShow(0);}} /* plus de lien avec le scroll : le survol décide */
 function drawPwr(){
   if(pwrAct<0)return;
   var pts=[];
