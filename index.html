@@ -573,7 +573,7 @@ APPS.forEach(function(a,i){
 });
 var door=document.createElement("div");door.className="panel door";
 door.innerHTML='<video muted loop playsinline preload="auto" src="https://lancetonapp.com/video/presentation.mp4"></video>'+
-  '<div class="ov"><h3 data-i18n="door_h"></h3><div class="btns"><button type="button" class="pill" id="sndBtn"></button><a class="pill solid" href="#quote" data-i18n="door_b"></a></div></div>';
+  '<div class="ov"><h3 data-i18n="door_h"></h3><div class="btns"><button type="button" class="pill" id="sndBtn"></button><a class="pill solid" href="#soumission" data-i18n="door_b"></a></div></div>';
 tunnel.appendChild(door);
 var doorZ=-(START+APPS.length*SPACING);
 panels.push({el:door,z:doorZ,side:0,door:true});
@@ -582,7 +582,21 @@ var CAM_MAX=-doorZ-330;
 /* ---------- Vidéo au fond du couloir ---------- */
 var dv=$("video",door),sndBtn=$("#sndBtn",door),userPaused=false;
 function updSnd(){sndBtn.textContent=I18N[lang][dv.muted?"snd_on":"snd_off"];}
-sndBtn.addEventListener("click",function(){dv.muted=!dv.muted;if(!dv.muted&&dv.paused)dv.play().catch(function(){});updSnd();});
+function toggleSnd(){dv.muted=!dv.muted;if(!dv.muted){dv.volume=1;if(dv.paused)dv.play().catch(function(){});}updSnd();}
+sndBtn.addEventListener("click",function(e){e.stopPropagation();toggleSnd();});
+/* Le clic ne traverse pas toujours le décor 3D : on teste nous-mêmes si le curseur est sur un bouton de la porte */
+var doorQuote=$("a.pill",door),stageEl=$("#stage");
+function hitBtn(e){
+  if(parseFloat(door.style.opacity||1)<.5)return null;
+  var els=[sndBtn,doorQuote];
+  for(var i=0;i<els.length;i++){var r=els[i].getBoundingClientRect();if(e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom)return els[i];}
+  return null;
+}
+stageEl.addEventListener("click",function(e){
+  var h=hitBtn(e);if(!h||e.target===h)return;
+  if(h===sndBtn)toggleSnd();else location.hash="#soumission";
+});
+stageEl.addEventListener("mousemove",function(e){stageEl.style.cursor=hitBtn(e)?"pointer":"";},{passive:true});
 
 
 /* ---------- Histoire : mots qui s'allument au scroll ---------- */
